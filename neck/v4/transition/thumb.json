@@ -1,0 +1,388 @@
+{
+ "note": "Thumb-over check of the prototype edge (2026-11-22).  Inches.  Reads the round-1/round-2 models, writes only thumb.json.\n\nThe Nov 18 prototype puts the R2 graded flow end on BOTH edges over the centred scallop (study.depth).  The bass edge is where a\nthumb-over hand wraps, so this asks whether the bass side should differ.  The contact model is fe_contact.py, unchanged; its\nsurface is fe_r2_model's with the scallop swapped for the prototype's centred one (study.depth, rail and string-line blend included;\nstudy.run() asserts the offset form of the same function equals the R2 scallop, so the swap is like for like).\nCandidates (treble side is the graded end in every case):\n  graded        Nov 18 spec: graded end on the bass side too (50 deg / r .040 at fret 1 -> 65 deg / r .030 at fret 22)\n  bass_long     bass side = R2 long flow end everywhere (50 deg line, r .040, turnover .040).  The rail start still follows the\n                graded roll radius (study.transverse), at most 0.010 different\n  shallow_bass  graded ends, scallop at the bass edge 30 % of the treble instead of 50 % (v4 'tilt' 0.5 -> 0.7)\nScenarios: thumb sliding the bass edge at 45 deg, thumb wrapped over and gripping, treble index finger at 45 deg (control).\nFrets 2, 12, 20 (the contact model's stations).   Run:  <venv>/python -I -B thumb.py\n",
+ "feel": {
+  "graded": {
+   "fret_2": {
+    "thumb_45": {
+     "peak": 4.131982346662006,
+     "peak_steel": 4.131982346662006,
+     "peak_wood": 3.198871650575742,
+     "on": "steel",
+     "catch_deg": 1.6197205373004622,
+     "lift": 0.004670039128294515,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.1132292564673856
+    },
+    "thumb_over": {
+     "peak": 4.03834936378041,
+     "peak_steel": 4.03834936378041,
+     "peak_wood": 3.123554993572006,
+     "on": "steel",
+     "catch_deg": 4.0658760693312175,
+     "lift": 0.014229318061895257,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.480738622080603
+    },
+    "index_45": {
+     "peak": 4.291310828620109,
+     "peak_steel": 4.291310828620109,
+     "peak_wood": 3.3147307291122674,
+     "on": "steel",
+     "catch_deg": 2.122389408520054,
+     "lift": 0.005800650371102001,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.2878833025317435
+    }
+   },
+   "fret_12": {
+    "thumb_45": {
+     "peak": 4.803993564925989,
+     "peak_steel": 4.803993564925989,
+     "peak_wood": 3.3468920157163597,
+     "on": "steel",
+     "catch_deg": 2.1397908137873296,
+     "lift": 0.005703425962498898,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.346698424325512
+    },
+    "thumb_over": {
+     "peak": 4.329651592942534,
+     "peak_steel": 4.329651592942534,
+     "peak_wood": 3.801187677730351,
+     "on": "steel",
+     "catch_deg": 4.913334961455195,
+     "lift": 0.016750662368283264,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.801187677730351
+    },
+    "index_45": {
+     "peak": 4.924213385947534,
+     "peak_steel": 4.924213385947534,
+     "peak_wood": 3.6056048182907485,
+     "on": "steel",
+     "catch_deg": 2.8234207975856744,
+     "lift": 0.007067171182024018,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.603755352429459
+    }
+   },
+   "fret_20": {
+    "thumb_45": {
+     "peak": 5.121778794506552,
+     "peak_steel": 5.121778794506552,
+     "peak_wood": 3.379241838011176,
+     "on": "steel",
+     "catch_deg": 2.459320438876197,
+     "lift": 0.004122465662430602,
+     "peak_at": 0.02000000000000035,
+     "base": 4.6528113109626625
+    },
+    "thumb_over": {
+     "peak": 4.503874509339678,
+     "peak_steel": 4.503874509339678,
+     "peak_wood": 3.221442469858205,
+     "on": "steel",
+     "catch_deg": 3.157796221421888,
+     "lift": 0.0037461696433173375,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 4.293459750466481
+    },
+    "index_45": {
+     "peak": 5.23813662917726,
+     "peak_steel": 5.23813662917726,
+     "peak_wood": 3.599401752085307,
+     "on": "steel",
+     "catch_deg": 3.2201496654727864,
+     "lift": 0.006914612429463174,
+     "peak_at": 0.4000000000000007,
+     "base": 4.683271262012681
+    }
+   }
+  },
+  "bass_long": {
+   "fret_2": {
+    "thumb_45": {
+     "peak": 4.038253300378411,
+     "peak_steel": 4.038253300378411,
+     "peak_wood": 3.1789671447067613,
+     "on": "steel",
+     "catch_deg": 1.5393101693304885,
+     "lift": 0.004497923856217362,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.0829604525185634
+    },
+    "thumb_over": {
+     "peak": 4.0082207592598165,
+     "peak_steel": 4.0082207592598165,
+     "peak_wood": 3.1224104426252364,
+     "on": "steel",
+     "catch_deg": 4.032846607801876,
+     "lift": 0.014227889994184062,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.4432507766158924
+    },
+    "index_45": {
+     "peak": 4.291310828620109,
+     "peak_steel": 4.291310828620109,
+     "peak_wood": 3.3147307291122674,
+     "on": "steel",
+     "catch_deg": 2.122389408520054,
+     "lift": 0.005800650371102001,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.2878833025317435
+    }
+   },
+   "fret_12": {
+    "thumb_45": {
+     "peak": 4.01715136937627,
+     "peak_steel": 4.01715136937627,
+     "peak_wood": 3.2811059960127804,
+     "on": "steel",
+     "catch_deg": 1.5661688569249836,
+     "lift": 0.0047706460222483454,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.2677683646186617
+    },
+    "thumb_over": {
+     "peak": 3.9964885420946588,
+     "peak_steel": 3.9964885420946588,
+     "peak_wood": 3.212769881319262,
+     "on": "steel",
+     "catch_deg": 4.632010781603192,
+     "lift": 0.01640723215685766,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.4679207824830582
+    },
+    "index_45": {
+     "peak": 4.924213385947534,
+     "peak_steel": 4.924213385947534,
+     "peak_wood": 3.6056048182907485,
+     "on": "steel",
+     "catch_deg": 2.8234207975856744,
+     "lift": 0.007067171182024018,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.603755352429459
+    }
+   },
+   "fret_20": {
+    "thumb_45": {
+     "peak": 4.02443722597745,
+     "peak_steel": 4.02443722597745,
+     "peak_wood": 3.1640229645626565,
+     "on": "steel",
+     "catch_deg": 1.5658375804172497,
+     "lift": 0.004383486228911035,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.3622495544180167
+    },
+    "thumb_over": {
+     "peak": 3.991733171596711,
+     "peak_steel": 3.991733171596711,
+     "peak_wood": 2.7621723020665656,
+     "on": "steel",
+     "catch_deg": 2.960704945655565,
+     "lift": 0.002994649847123304,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.7754428031707667
+    },
+    "index_45": {
+     "peak": 5.23813662917726,
+     "peak_steel": 5.23813662917726,
+     "peak_wood": 3.599401752085307,
+     "on": "steel",
+     "catch_deg": 3.2201496654727864,
+     "lift": 0.006914612429463174,
+     "peak_at": 0.4000000000000007,
+     "base": 4.683271262012681
+    }
+   }
+  },
+  "shallow_bass": {
+   "fret_2": {
+    "thumb_45": {
+     "peak": 4.131988797872966,
+     "peak_steel": 4.131988797872966,
+     "peak_wood": 3.1987210015520597,
+     "on": "steel",
+     "catch_deg": 1.6172135147529212,
+     "lift": 0.004614964352995715,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.103480931729887
+    },
+    "thumb_over": {
+     "peak": 4.034855648108321,
+     "peak_steel": 4.034855648108321,
+     "peak_wood": 3.013539336801374,
+     "on": "steel",
+     "catch_deg": 3.712696737685617,
+     "lift": 0.011690417524516133,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.461198297693431
+    },
+    "index_45": {
+     "peak": 4.291312797799226,
+     "peak_steel": 4.291312797799226,
+     "peak_wood": 3.3147415900058768,
+     "on": "steel",
+     "catch_deg": 2.1225440755491514,
+     "lift": 0.0058037869595316816,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.2890026409179134
+    }
+   },
+   "fret_12": {
+    "thumb_45": {
+     "peak": 4.803931403960333,
+     "peak_steel": 4.803931403960333,
+     "peak_wood": 3.326976371341143,
+     "on": "steel",
+     "catch_deg": 2.134106254238527,
+     "lift": 0.005607265649382451,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.3247990200573216
+    },
+    "thumb_over": {
+     "peak": 4.324401379356769,
+     "peak_steel": 4.324401379356769,
+     "peak_wood": 3.6265933386045526,
+     "on": "steel",
+     "catch_deg": 4.403978818879414,
+     "lift": 0.013386241743162247,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.7512907620714593
+    },
+    "index_45": {
+     "peak": 4.924226327765857,
+     "peak_steel": 4.924226327765857,
+     "peak_wood": 3.6050594209633444,
+     "on": "steel",
+     "catch_deg": 2.8232637368321294,
+     "lift": 0.007065567862264574,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 3.603003044457811
+    }
+   },
+   "fret_20": {
+    "thumb_45": {
+     "peak": 5.12172120787701,
+     "peak_steel": 5.12172120787701,
+     "peak_wood": 3.3748775550988883,
+     "on": "steel",
+     "catch_deg": 2.4541291389982107,
+     "lift": 0.004078694261757998,
+     "peak_at": 0.02000000000000035,
+     "base": 4.65156323165992
+    },
+    "thumb_over": {
+     "peak": 4.498177260879543,
+     "peak_steel": 4.498177260879543,
+     "peak_wood": 3.185596588543891,
+     "on": "steel",
+     "catch_deg": 2.9821051993082524,
+     "lift": 0.003592687595945443,
+     "peak_at": 3.3306690738754696e-16,
+     "base": 4.283094179958487
+    },
+    "index_45": {
+     "peak": 5.238135389467322,
+     "peak_steel": 5.238135389467322,
+     "peak_wood": 3.599255462223559,
+     "on": "steel",
+     "catch_deg": 3.2200147141929687,
+     "lift": 0.006912754767560231,
+     "peak_at": 0.4000000000000007,
+     "base": 4.683246278284801
+    }
+   }
+  }
+ },
+ "margins": {
+  "graded": {
+   "fret_1": {
+    "T": 0.0755,
+    "B": 0.0755
+   },
+   "fret_12": {
+    "T": 0.0836,
+    "B": 0.0836
+   },
+   "fret_21": {
+    "T": 0.0866,
+    "B": 0.0866
+   }
+  },
+  "bass_long": {
+   "fret_1": {
+    "T": 0.0755,
+    "B": 0.0755
+   },
+   "fret_12": {
+    "T": 0.0836,
+    "B": 0.0617
+   },
+   "fret_21": {
+    "T": 0.0866,
+    "B": 0.0554
+   }
+  },
+  "shallow_bass": {
+   "fret_1": {
+    "T": 0.0755,
+    "B": 0.0755
+   },
+   "fret_12": {
+    "T": 0.0836,
+    "B": 0.0836
+   },
+   "fret_21": {
+    "T": 0.0866,
+    "B": 0.0866
+   }
+  }
+ },
+ "trough": {
+  "graded": {
+   "cell_2": {
+    "low_E": 0.0186,
+    "high_E": 0.0327
+   },
+   "cell_12": {
+    "low_E": 0.0283,
+    "high_E": 0.0511
+   },
+   "cell_20": {
+    "low_E": 0.0125,
+    "high_E": 0.0229
+   }
+  },
+  "bass_long": {
+   "cell_2": {
+    "low_E": 0.0186,
+    "high_E": 0.0327
+   },
+   "cell_12": {
+    "low_E": 0.0283,
+    "high_E": 0.0511
+   },
+   "cell_20": {
+    "low_E": 0.0125,
+    "high_E": 0.0229
+   }
+  },
+  "shallow_bass": {
+   "cell_2": {
+    "low_E": 0.0126,
+    "high_E": 0.0327
+   },
+   "cell_12": {
+    "low_E": 0.0184,
+    "high_E": 0.0504
+   },
+   "cell_20": {
+    "low_E": 0.0081,
+    "high_E": 0.0226
+   }
+  }
+ },
+ "seconds": 9.7
+}

@@ -1,0 +1,530 @@
+{
+ "meta": {
+  "what": "Supercaster II neck v4, beam description for the body model",
+  "units": "SI unless a key ends in _in",
+  "frame": "x from the nut face toward the bridge, y + bass, z up, z = 0 on the board-top centreline",
+  "how_built": "composite sections integrated on a 0.004 in grid (bending) and a 0.008 in grid (torsion); EI and EA are harmonic means over each fret cell so the scallops are included; GJ at mid-cell",
+  "validity": "neck alone, nut to the body joint. Do not read dead spots from these values without the body."
+ },
+ "materials": {
+  "maple": {
+   "E_GPa": 12.4,
+   "rho": 678.0,
+   "G_LR_GPa": 1.54,
+   "G_LT_GPa": 0.873,
+   "loss_factor_L": 0.0099,
+   "sawn": "flat-sawn assumed: z radial, y tangential"
+  },
+  "rosewood": {
+   "E_GPa": 13.5,
+   "rho": 855.0,
+   "G_LR_GPa": 1.19,
+   "G_LT_GPa": 0.92
+  },
+  "uncertainty": "E of one blank is +/-15 % of the species figure; scale EI, EA together"
+ },
+ "segments": [
+  {
+   "cell": 1,
+   "x0_in": 0.0,
+   "x1_in": 1.431205,
+   "x0_m": 0.0,
+   "x1_m": 0.036353,
+   "EI_vertical_Nm2": 349.035793,
+   "EI_lateral_Nm2": 1264.20324,
+   "GJ_Nm2": 76.652109,
+   "EA_N": 9943540.892468,
+   "mass_per_length_kg_m": 0.612862,
+   "neutral_axis_z_m": -0.010175,
+   "mass_centre_z_m": -0.010098,
+   "area_m2": 0.00079
+  },
+  {
+   "cell": 2,
+   "x0_in": 1.431205,
+   "x1_in": 2.782083,
+   "x0_m": 0.036353,
+   "x1_m": 0.070665,
+   "EI_vertical_Nm2": 361.043778,
+   "EI_lateral_Nm2": 1371.313152,
+   "GJ_Nm2": 79.711104,
+   "EA_N": 10063640.329406,
+   "mass_per_length_kg_m": 0.706838,
+   "neutral_axis_z_m": -0.010231,
+   "mass_centre_z_m": -0.010663,
+   "area_m2": 0.000799
+  },
+  {
+   "cell": 3,
+   "x0_in": 2.782083,
+   "x1_in": 4.057141,
+   "x0_m": 0.070665,
+   "x1_m": 0.103051,
+   "EI_vertical_Nm2": 373.367634,
+   "EI_lateral_Nm2": 1476.211459,
+   "GJ_Nm2": 82.153977,
+   "EA_N": 10367483.848659,
+   "mass_per_length_kg_m": 0.723729,
+   "neutral_axis_z_m": -0.010292,
+   "mass_centre_z_m": -0.010969,
+   "area_m2": 0.000823
+  },
+  {
+   "cell": 4,
+   "x0_in": 4.057141,
+   "x1_in": 5.260637,
+   "x0_m": 0.103051,
+   "x1_m": 0.13362,
+   "EI_vertical_Nm2": 385.350404,
+   "EI_lateral_Nm2": 1580.609788,
+   "GJ_Nm2": 84.721265,
+   "EA_N": 10659295.758369,
+   "mass_per_length_kg_m": 0.739955,
+   "neutral_axis_z_m": -0.010362,
+   "mass_centre_z_m": -0.011209,
+   "area_m2": 0.000847
+  },
+  {
+   "cell": 5,
+   "x0_in": 5.260637,
+   "x1_in": 6.396585,
+   "x0_m": 0.13362,
+   "x1_m": 0.162473,
+   "EI_vertical_Nm2": 397.228094,
+   "EI_lateral_Nm2": 1683.164108,
+   "GJ_Nm2": 86.996824,
+   "EA_N": 10933165.562625,
+   "mass_per_length_kg_m": 0.755182,
+   "neutral_axis_z_m": -0.010431,
+   "mass_centre_z_m": -0.011387,
+   "area_m2": 0.000869
+  },
+  {
+   "cell": 6,
+   "x0_in": 6.396585,
+   "x1_in": 7.468777,
+   "x0_m": 0.162473,
+   "x1_m": 0.189707,
+   "EI_vertical_Nm2": 409.734174,
+   "EI_lateral_Nm2": 1784.706262,
+   "GJ_Nm2": 89.295706,
+   "EA_N": 11199378.254201,
+   "mass_per_length_kg_m": 0.769975,
+   "neutral_axis_z_m": -0.010508,
+   "mass_centre_z_m": -0.011523,
+   "area_m2": 0.00089
+  },
+  {
+   "cell": 7,
+   "x0_in": 7.468777,
+   "x1_in": 8.480792,
+   "x0_m": 0.189707,
+   "x1_m": 0.215412,
+   "EI_vertical_Nm2": 422.31962,
+   "EI_lateral_Nm2": 1884.367386,
+   "GJ_Nm2": 91.67292,
+   "EA_N": 11449933.191756,
+   "mass_per_length_kg_m": 0.783904,
+   "neutral_axis_z_m": -0.010582,
+   "mass_centre_z_m": -0.011617,
+   "area_m2": 0.00091
+  },
+  {
+   "cell": 8,
+   "x0_in": 8.480792,
+   "x1_in": 9.436007,
+   "x0_m": 0.215412,
+   "x1_m": 0.239675,
+   "EI_vertical_Nm2": 434.7732,
+   "EI_lateral_Nm2": 1982.411126,
+   "GJ_Nm2": 94.215444,
+   "EA_N": 11683695.195797,
+   "mass_per_length_kg_m": 0.796901,
+   "neutral_axis_z_m": -0.010655,
+   "mass_centre_z_m": -0.011679,
+   "area_m2": 0.000929
+  },
+  {
+   "cell": 9,
+   "x0_in": 9.436007,
+   "x1_in": 10.337609,
+   "x0_m": 0.239675,
+   "x1_m": 0.262575,
+   "EI_vertical_Nm2": 448.157492,
+   "EI_lateral_Nm2": 2077.965761,
+   "GJ_Nm2": 97.149355,
+   "EA_N": 11912598.878302,
+   "mass_per_length_kg_m": 0.809639,
+   "neutral_axis_z_m": -0.010729,
+   "mass_centre_z_m": -0.011716,
+   "area_m2": 0.000947
+  },
+  {
+   "cell": 10,
+   "x0_in": 10.337609,
+   "x1_in": 11.188609,
+   "x0_m": 0.262575,
+   "x1_m": 0.284191,
+   "EI_vertical_Nm2": 461.084809,
+   "EI_lateral_Nm2": 2171.408364,
+   "GJ_Nm2": 100.143272,
+   "EA_N": 12127147.148114,
+   "mass_per_length_kg_m": 0.821564,
+   "neutral_axis_z_m": -0.010801,
+   "mass_centre_z_m": -0.011732,
+   "area_m2": 0.000964
+  },
+  {
+   "cell": 11,
+   "x0_in": 11.188609,
+   "x1_in": 11.991846,
+   "x0_m": 0.284191,
+   "x1_m": 0.304593,
+   "EI_vertical_Nm2": 474.12297,
+   "EI_lateral_Nm2": 2261.309112,
+   "GJ_Nm2": 102.252081,
+   "EA_N": 12331418.332249,
+   "mass_per_length_kg_m": 0.832947,
+   "neutral_axis_z_m": -0.010872,
+   "mass_centre_z_m": -0.01173,
+   "area_m2": 0.000981
+  },
+  {
+   "cell": 12,
+   "x0_in": 11.991846,
+   "x1_in": 12.75,
+   "x0_m": 0.304593,
+   "x1_m": 0.32385,
+   "EI_vertical_Nm2": 486.834873,
+   "EI_lateral_Nm2": 2350.142874,
+   "GJ_Nm2": 105.480521,
+   "EA_N": 12525148.782143,
+   "mass_per_length_kg_m": 0.84372,
+   "neutral_axis_z_m": -0.01094,
+   "mass_centre_z_m": -0.011715,
+   "area_m2": 0.000996
+  },
+  {
+   "cell": 13,
+   "x0_in": 12.75,
+   "x1_in": 13.465603,
+   "x0_m": 0.32385,
+   "x1_m": 0.342026,
+   "EI_vertical_Nm2": 500.486124,
+   "EI_lateral_Nm2": 2437.866813,
+   "GJ_Nm2": 108.406942,
+   "EA_N": 12723532.78015,
+   "mass_per_length_kg_m": 0.854819,
+   "neutral_axis_z_m": -0.010999,
+   "mass_centre_z_m": -0.011681,
+   "area_m2": 0.001012
+  },
+  {
+   "cell": 14,
+   "x0_in": 13.465603,
+   "x1_in": 14.141041,
+   "x0_m": 0.342026,
+   "x1_m": 0.359182,
+   "EI_vertical_Nm2": 513.677306,
+   "EI_lateral_Nm2": 2523.156908,
+   "GJ_Nm2": 111.681446,
+   "EA_N": 12910856.184098,
+   "mass_per_length_kg_m": 0.86531,
+   "neutral_axis_z_m": -0.011056,
+   "mass_centre_z_m": -0.011639,
+   "area_m2": 0.001027
+  },
+  {
+   "cell": 15,
+   "x0_in": 14.141041,
+   "x1_in": 14.778571,
+   "x0_m": 0.359182,
+   "x1_m": 0.375376,
+   "EI_vertical_Nm2": 528.906734,
+   "EI_lateral_Nm2": 2612.449002,
+   "GJ_Nm2": 115.558434,
+   "EA_N": 13110794.645865,
+   "mass_per_length_kg_m": 0.876642,
+   "neutral_axis_z_m": -0.011088,
+   "mass_centre_z_m": -0.011569,
+   "area_m2": 0.001043
+  },
+  {
+   "cell": 16,
+   "x0_in": 14.778571,
+   "x1_in": 15.380318,
+   "x0_m": 0.375376,
+   "x1_m": 0.39066,
+   "EI_vertical_Nm2": 545.498699,
+   "EI_lateral_Nm2": 2702.465784,
+   "GJ_Nm2": 120.550875,
+   "EA_N": 13323769.965067,
+   "mass_per_length_kg_m": 0.888791,
+   "neutral_axis_z_m": -0.01111,
+   "mass_centre_z_m": -0.011485,
+   "area_m2": 0.001059
+  },
+  {
+   "cell": 17,
+   "x0_in": 15.380318,
+   "x1_in": 15.6875,
+   "x0_m": 0.39066,
+   "x1_m": 0.398462,
+   "EI_vertical_Nm2": 559.586147,
+   "EI_lateral_Nm2": 2774.937161,
+   "GJ_Nm2": 131.984308,
+   "EA_N": 13496891.738254,
+   "mass_per_length_kg_m": 0.898733,
+   "neutral_axis_z_m": -0.011114,
+   "mass_centre_z_m": -0.011407,
+   "area_m2": 0.001073
+  }
+ ],
+ "timoshenko": {
+  "shear_factor": 0.85,
+  "G_for_vertical_shear_GPa": 1.54,
+  "G_for_lateral_shear_GPa": 0.873
+ },
+ "frets": [
+  {
+   "fret": 1,
+   "x_m": 0.036353,
+   "mass_kg": 0.000801
+  },
+  {
+   "fret": 2,
+   "x_m": 0.070665,
+   "mass_kg": 0.000821
+  },
+  {
+   "fret": 3,
+   "x_m": 0.103051,
+   "mass_kg": 0.00084
+  },
+  {
+   "fret": 4,
+   "x_m": 0.13362,
+   "mass_kg": 0.000857
+  },
+  {
+   "fret": 5,
+   "x_m": 0.162473,
+   "mass_kg": 0.000874
+  },
+  {
+   "fret": 6,
+   "x_m": 0.189707,
+   "mass_kg": 0.00089
+  },
+  {
+   "fret": 7,
+   "x_m": 0.215412,
+   "mass_kg": 0.000905
+  },
+  {
+   "fret": 8,
+   "x_m": 0.239675,
+   "mass_kg": 0.000919
+  },
+  {
+   "fret": 9,
+   "x_m": 0.262575,
+   "mass_kg": 0.000932
+  },
+  {
+   "fret": 10,
+   "x_m": 0.284191,
+   "mass_kg": 0.000945
+  },
+  {
+   "fret": 11,
+   "x_m": 0.304593,
+   "mass_kg": 0.000956
+  },
+  {
+   "fret": 12,
+   "x_m": 0.32385,
+   "mass_kg": 0.000967
+  },
+  {
+   "fret": 13,
+   "x_m": 0.342026,
+   "mass_kg": 0.000978
+  },
+  {
+   "fret": 14,
+   "x_m": 0.359182,
+   "mass_kg": 0.000988
+  },
+  {
+   "fret": 15,
+   "x_m": 0.375376,
+   "mass_kg": 0.000997
+  },
+  {
+   "fret": 16,
+   "x_m": 0.39066,
+   "mass_kg": 0.001006
+  },
+  {
+   "fret": 17,
+   "x_m": 0.405087,
+   "mass_kg": 0.001015
+  },
+  {
+   "fret": 18,
+   "x_m": 0.418703,
+   "mass_kg": 0.001022
+  },
+  {
+   "fret": 19,
+   "x_m": 0.431556,
+   "mass_kg": 0.00103
+  },
+  {
+   "fret": 20,
+   "x_m": 0.443687,
+   "mass_kg": 0.001037
+  },
+  {
+   "fret": 21,
+   "x_m": 0.455138,
+   "mass_kg": 0.001044
+  },
+  {
+   "fret": 22,
+   "x_m": 0.465945,
+   "mass_kg": 0.00105
+  }
+ ],
+ "nut": {
+  "x_m": -0.0015,
+  "mass_kg": 0.0013
+ },
+ "rod": {
+  "type": "single-acting 3/16 in steel, sleeved, in a curved channel under a glued maple spline",
+  "mass_per_length_kg_m": 0.139839,
+  "included_in_segments": true,
+  "x_anchor_m": 0.02032,
+  "x_wheel_m": 0.47498,
+  "anchor_mass_kg": 0.006,
+  "wheel_mass_kg": 0.012,
+  "axis_z_m": [
+   {
+    "x_m": 0.02032,
+    "z_m": -0.011684
+   },
+   {
+    "x_m": 0.070838,
+    "z_m": -0.014124
+   },
+   {
+    "x_m": 0.121356,
+    "z_m": -0.015911
+   },
+   {
+    "x_m": 0.171873,
+    "z_m": -0.017046
+   },
+   {
+    "x_m": 0.222391,
+    "z_m": -0.017529
+   },
+   {
+    "x_m": 0.272909,
+    "z_m": -0.01736
+   },
+   {
+    "x_m": 0.323427,
+    "z_m": -0.016538
+   },
+   {
+    "x_m": 0.373944,
+    "z_m": -0.015064
+   },
+   {
+    "x_m": 0.424462,
+    "z_m": -0.012938
+   },
+   {
+    "x_m": 0.47498,
+    "z_m": -0.01016
+   }
+  ],
+  "stiffness_note": "the rod is a tendon: it adds axial preload, not bending stiffness; in service 70 to 190 lb"
+ },
+ "headstock": {
+  "reverse": true,
+  "wood_kg": 0.088731,
+  "tuners_kg": 0.168,
+  "total_kg": 0.256731,
+  "centre_of_mass_m": [
+   -0.099065,
+   -0.008214,
+   -0.025435
+  ],
+  "inertia_about_nut_line_kgm2": 0.002921,
+  "tuner_points_m": [
+   [
+    -0.04699,
+    -0.025083,
+    -0.02921
+   ],
+   [
+    -0.069755,
+    -0.018097,
+    -0.02921
+   ],
+   [
+    -0.09252,
+    -0.011112,
+    -0.02921
+   ],
+   [
+    -0.115285,
+    -0.004128,
+    -0.02921
+   ],
+   [
+    -0.13805,
+    0.002858,
+    -0.02921
+   ],
+   [
+    -0.160815,
+    0.009843,
+    -0.02921
+   ]
+  ],
+  "tuner_mass_each_kg": 0.028,
+  "thickness_m": 0.014224,
+  "face_below_board_top_m": 0.011176,
+  "note": "outline area from the site model outline, mirrored; +/-10 % on the wood mass"
+ },
+ "joint": {
+  "x_m": 0.398462,
+  "board_end_x_m": 0.472295,
+  "width_at_joint_m": 0.055093,
+  "depth_at_joint_m": 0.02478,
+  "note": "from the joint on, the section is the body heel loft and tenon: body model owns it"
+ },
+ "strings": {
+  "tuning": "Eb standard",
+  "tension_N": [
+   71.235557,
+   66.086871,
+   66.019883,
+   72.930138,
+   77.412524,
+   75.030502
+  ],
+  "total_N": 428.715474,
+  "drop_C_sharp_total_N": 413.236721
+ },
+ "damping_notes": [
+  "Rod: sleeved and bedded on silicone at three points, never slack below 40 lb, so it cannot buzz against the channel.",
+  "Frets: bedded in glue over the whole tang with the crown seated on the land; an unseated fret end is a local loss and a dead note.",
+  "Glue lines (board, spline): thin rigid lines (hot hide or Titebond Original); they add no measurable loss if under 0.005 in.",
+  "Set-neck joint stiffness and loss belong to the body model; they matter more to sustain than anything in this file."
+ ]
+}

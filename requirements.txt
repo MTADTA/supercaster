@@ -1,0 +1,8 @@
+# Versions in the environment these scripts were last run with (Python 3.11).
+numpy==2.4.6
+scipy==1.17.1
+matplotlib==3.11.2
+# Also needed by some scripts, not pinned here:
+#   pymetis   body/sim/model.py (mesh partitioning)
+#   pyvista   neck/v4/fret-ends/fe_render.py (shaded views)
+#   Pillow    scripts that compose figure sheets

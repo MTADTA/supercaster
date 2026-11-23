@@ -1,0 +1,264 @@
+##############################################################################
+VARIANT auto (4PDT PHASE: position 3 = neck + coil B, flipped = neck + coil A)
+##############################################################################
+STATE TABLE (shares of each source at the output; open-circuit, equal 1k coils)
+
+pos ser phs piezo       N      M      A      B     Pz
+1   0   0   off     0.000  0.000  1.000  1.000  0.000
+1   0   0   blend   0.000  0.000  1.000  1.000  0.990
+1   0   0   solo    0.000  0.000  0.000 -0.000  0.990
+1   0   1   off     0.000  0.000  1.000  1.000  0.000
+1   0   1   blend   0.000  0.000  1.000  1.000  0.990
+1   0   1   solo    0.000  0.000  0.000 -0.000  0.990
+1   1   0   off     0.000  0.000  1.000  1.000  0.000
+1   1   0   blend   0.000  0.000  1.000  1.000  0.990
+1   1   0   solo    0.000  0.000  0.000 -0.000  0.990
+1   1   1   off     0.000  0.000  1.000  1.000  0.000
+1   1   1   blend   0.000  0.000  1.000  1.000  0.990
+1   1   1   solo    0.000  0.000  0.000 -0.000  0.990
+2   0   0   off     0.000  0.500  0.500  0.000  0.000
+2   0   0   blend   0.000  0.500  0.500  0.000  0.990
+2   0   0   solo    0.000  0.000  0.000  0.000  0.990
+2   0   1   off     0.000  0.500  0.500  0.000  0.000
+2   0   1   blend   0.000  0.500  0.500  0.000  0.990
+2   0   1   solo    0.000  0.000  0.000  0.000  0.990
+2   1   0   off     0.000  1.000  1.000  0.000  0.000
+2   1   0   blend   0.000  1.000  1.000  0.000  0.990
+2   1   0   solo    0.000 -0.000  0.000  0.000  0.990
+2   1   1   off     0.000  1.000  1.000  0.000  0.000
+2   1   1   blend   0.000  1.000  1.000  0.000  0.990
+2   1   1   solo    0.000 -0.000  0.000  0.000  0.990
+3   0   0   off     0.500  0.000 -0.000  0.500  0.000
+3   0   0   blend   0.500  0.000 -0.000  0.500  0.990
+3   0   0   solo    0.000  0.000 -0.000  0.000  0.990
+3   0   1   off    -0.500  0.000  0.500  0.000  0.000
+3   0   1   blend  -0.500  0.000  0.500  0.000  0.990
+3   0   1   solo    0.000  0.000  0.000  0.000  0.990
+3   1   0   off     1.000  0.000 -0.000  1.000  0.000
+3   1   0   blend   1.000  0.000 -0.000  1.000  0.990
+3   1   0   solo   -0.000  0.000 -0.000  0.000  0.990
+3   1   1   off    -1.000  0.000  1.000  0.000  0.000
+3   1   1   blend  -1.000  0.000  1.000  0.000  0.990
+3   1   1   solo    0.000  0.000  0.000  0.000  0.990
+4   0   0   off     0.500  0.500  0.000  0.000  0.000
+4   0   0   blend   0.500  0.500  0.000  0.000  0.990
+4   0   0   solo    0.000  0.000  0.000  0.000  0.990
+4   0   1   off    -0.500  0.500  0.000  0.000  0.000
+4   0   1   blend  -0.500  0.500  0.000  0.000  0.990
+4   0   1   solo    0.000  0.000  0.000  0.000  0.990
+4   1   0   off     1.000  1.000  0.000  0.000  0.000
+4   1   0   blend   1.000  1.000  0.000  0.000  0.990
+4   1   0   solo    0.000 -0.000  0.000  0.000  0.990
+4   1   1   off    -1.000  1.000  0.000  0.000  0.000
+4   1   1   blend  -1.000  1.000  0.000  0.000  0.990
+4   1   1   solo   -0.000 -0.000  0.000  0.000  0.990
+5   0   0   off     1.000  0.000  0.000  0.000  0.000
+5   0   0   blend   1.000  0.000  0.000  0.000  0.990
+5   0   0   solo    0.000  0.000  0.000  0.000  0.990
+5   0   1   off    -1.000  0.000  0.000  0.000  0.000
+5   0   1   blend  -1.000  0.000  0.000  0.000  0.990
+5   0   1   solo    0.000  0.000  0.000  0.000  0.990
+5   1   0   off     1.000  0.000  0.000  0.000  0.000
+5   1   0   blend   1.000  0.000  0.000  0.000  0.990
+5   1   0   solo    0.000  0.000  0.000  0.000  0.990
+5   1   1   off    -1.000  0.000  0.000  0.000  0.000
+5   1   1   blend  -1.000  0.000  0.000  0.000  0.990
+5   1   1   solo    0.000  0.000  0.000  0.000  0.990
+
+HUM with magnet polarity: classic (N and M are a normal RWRP pair; A opposite M)
+  (string = summed signal share, hum = summed hum share; 1.0 = one single coil)
+  1 Bridge HB (A+B)          alone    in-phase      hum +0.00  -> QUIET
+  2 Bridge A + Middle        parallel in-phase      hum +0.00  -> QUIET
+  2 Bridge A + Middle        series   in-phase      hum +0.00  -> QUIET
+  3 Neck + bridge coil (Tele) parallel in-phase      hum -0.00  -> QUIET
+  3 Neck + bridge coil (Tele) parallel out-of-phase  hum +0.00  -> QUIET
+  3 Neck + bridge coil (Tele) series   in-phase      hum -0.00  -> QUIET
+  3 Neck + bridge coil (Tele) series   out-of-phase  hum +0.00  -> QUIET
+  4 Neck + Middle            parallel in-phase      hum +0.00  -> QUIET
+  4 Neck + Middle            parallel out-of-phase  hum -1.00  -> hums like a single coil
+  4 Neck + Middle            series   in-phase      hum +0.00  -> QUIET
+  4 Neck + Middle            series   out-of-phase  hum -2.00  -> hums like a single coil
+  5 Neck                     alone    in-phase      hum +1.00  -> hums like a single coil
+
+CHECKS: all 60 states pass
+##############################################################################
+VARIANT A (position 3 always neck + coil A)
+##############################################################################
+STATE TABLE (shares of each source at the output; open-circuit, equal 1k coils)
+
+pos ser phs piezo       N      M      A      B     Pz
+1   0   0   off     0.000  0.000  1.000  1.000  0.000
+1   0   0   blend   0.000  0.000  1.000  1.000  0.990
+1   0   0   solo    0.000  0.000  0.000 -0.000  0.990
+1   0   1   off     0.000  0.000  1.000  1.000  0.000
+1   0   1   blend   0.000  0.000  1.000  1.000  0.990
+1   0   1   solo    0.000  0.000  0.000 -0.000  0.990
+1   1   0   off     0.000  0.000  1.000  1.000  0.000
+1   1   0   blend   0.000  0.000  1.000  1.000  0.990
+1   1   0   solo    0.000  0.000  0.000 -0.000  0.990
+1   1   1   off     0.000  0.000  1.000  1.000  0.000
+1   1   1   blend   0.000  0.000  1.000  1.000  0.990
+1   1   1   solo    0.000  0.000  0.000 -0.000  0.990
+2   0   0   off     0.000  0.500  0.500  0.000  0.000
+2   0   0   blend   0.000  0.500  0.500  0.000  0.990
+2   0   0   solo    0.000  0.000  0.000  0.000  0.990
+2   0   1   off     0.000  0.500  0.500  0.000  0.000
+2   0   1   blend   0.000  0.500  0.500  0.000  0.990
+2   0   1   solo    0.000  0.000  0.000  0.000  0.990
+2   1   0   off     0.000  1.000  1.000  0.000  0.000
+2   1   0   blend   0.000  1.000  1.000  0.000  0.990
+2   1   0   solo    0.000 -0.000  0.000  0.000  0.990
+2   1   1   off     0.000  1.000  1.000  0.000  0.000
+2   1   1   blend   0.000  1.000  1.000  0.000  0.990
+2   1   1   solo    0.000 -0.000  0.000  0.000  0.990
+3   0   0   off     0.500  0.000  0.500  0.000  0.000
+3   0   0   blend   0.500  0.000  0.500  0.000  0.990
+3   0   0   solo    0.000  0.000  0.000  0.000  0.990
+3   0   1   off    -0.500  0.000  0.500  0.000  0.000
+3   0   1   blend  -0.500  0.000  0.500  0.000  0.990
+3   0   1   solo    0.000  0.000  0.000  0.000  0.990
+3   1   0   off     1.000  0.000  1.000  0.000  0.000
+3   1   0   blend   1.000  0.000  1.000  0.000  0.990
+3   1   0   solo   -0.000  0.000  0.000  0.000  0.990
+3   1   1   off    -1.000  0.000  1.000  0.000  0.000
+3   1   1   blend  -1.000  0.000  1.000  0.000  0.990
+3   1   1   solo    0.000  0.000  0.000  0.000  0.990
+4   0   0   off     0.500  0.500  0.000  0.000  0.000
+4   0   0   blend   0.500  0.500  0.000  0.000  0.990
+4   0   0   solo    0.000  0.000  0.000  0.000  0.990
+4   0   1   off    -0.500  0.500  0.000  0.000  0.000
+4   0   1   blend  -0.500  0.500  0.000  0.000  0.990
+4   0   1   solo    0.000  0.000  0.000  0.000  0.990
+4   1   0   off     1.000  1.000  0.000  0.000  0.000
+4   1   0   blend   1.000  1.000  0.000  0.000  0.990
+4   1   0   solo    0.000 -0.000  0.000  0.000  0.990
+4   1   1   off    -1.000  1.000  0.000  0.000  0.000
+4   1   1   blend  -1.000  1.000  0.000  0.000  0.990
+4   1   1   solo   -0.000 -0.000  0.000  0.000  0.990
+5   0   0   off     1.000  0.000  0.000  0.000  0.000
+5   0   0   blend   1.000  0.000  0.000  0.000  0.990
+5   0   0   solo    0.000  0.000  0.000  0.000  0.990
+5   0   1   off    -1.000  0.000  0.000  0.000  0.000
+5   0   1   blend  -1.000  0.000  0.000  0.000  0.990
+5   0   1   solo    0.000  0.000  0.000  0.000  0.990
+5   1   0   off     1.000  0.000  0.000  0.000  0.000
+5   1   0   blend   1.000  0.000  0.000  0.000  0.990
+5   1   0   solo    0.000  0.000  0.000  0.000  0.990
+5   1   1   off    -1.000  0.000  0.000  0.000  0.000
+5   1   1   blend  -1.000  0.000  0.000  0.000  0.990
+5   1   1   solo    0.000  0.000  0.000  0.000  0.990
+
+HUM with magnet polarity: classic (N and M are a normal RWRP pair; A opposite M)
+  (string = summed signal share, hum = summed hum share; 1.0 = one single coil)
+  1 Bridge HB (A+B)          alone    in-phase      hum +0.00  -> QUIET
+  2 Bridge A + Middle        parallel in-phase      hum +0.00  -> QUIET
+  2 Bridge A + Middle        series   in-phase      hum +0.00  -> QUIET
+  3 Neck + bridge coil (Tele) parallel in-phase      hum +1.00  -> hums like a single coil
+  3 Neck + bridge coil (Tele) parallel out-of-phase  hum +0.00  -> QUIET
+  3 Neck + bridge coil (Tele) series   in-phase      hum +2.00  -> hums like a single coil
+  3 Neck + bridge coil (Tele) series   out-of-phase  hum +0.00  -> QUIET
+  4 Neck + Middle            parallel in-phase      hum +0.00  -> QUIET
+  4 Neck + Middle            parallel out-of-phase  hum -1.00  -> hums like a single coil
+  4 Neck + Middle            series   in-phase      hum +0.00  -> QUIET
+  4 Neck + Middle            series   out-of-phase  hum -2.00  -> hums like a single coil
+  5 Neck                     alone    in-phase      hum +1.00  -> hums like a single coil
+
+HUM with magnet polarity: tele-first (A opposite both N and M)
+  (string = summed signal share, hum = summed hum share; 1.0 = one single coil)
+  1 Bridge HB (A+B)          alone    in-phase      hum +0.00  -> QUIET
+  2 Bridge A + Middle        parallel in-phase      hum +0.00  -> QUIET
+  2 Bridge A + Middle        series   in-phase      hum +0.00  -> QUIET
+  3 Neck + bridge coil (Tele) parallel in-phase      hum +0.00  -> QUIET
+  3 Neck + bridge coil (Tele) parallel out-of-phase  hum +1.00  -> hums like a single coil
+  3 Neck + bridge coil (Tele) series   in-phase      hum +0.00  -> QUIET
+  3 Neck + bridge coil (Tele) series   out-of-phase  hum +2.00  -> hums like a single coil
+  4 Neck + Middle            parallel in-phase      hum -1.00  -> hums like a single coil
+  4 Neck + Middle            parallel out-of-phase  hum +0.00  -> QUIET
+  4 Neck + Middle            series   in-phase      hum -2.00  -> hums like a single coil
+  4 Neck + Middle            series   out-of-phase  hum +0.00  -> QUIET
+  5 Neck                     alone    in-phase      hum -1.00  -> hums like a single coil
+
+CHECKS: all 60 states pass
+##############################################################################
+VARIANT B (position 3 always neck + coil B)
+##############################################################################
+STATE TABLE (shares of each source at the output; open-circuit, equal 1k coils)
+
+pos ser phs piezo       N      M      A      B     Pz
+1   0   0   off     0.000  0.000  1.000  1.000  0.000
+1   0   0   blend   0.000  0.000  1.000  1.000  0.990
+1   0   0   solo    0.000  0.000  0.000 -0.000  0.990
+1   0   1   off     0.000  0.000  1.000  1.000  0.000
+1   0   1   blend   0.000  0.000  1.000  1.000  0.990
+1   0   1   solo    0.000  0.000  0.000 -0.000  0.990
+1   1   0   off     0.000  0.000  1.000  1.000  0.000
+1   1   0   blend   0.000  0.000  1.000  1.000  0.990
+1   1   0   solo    0.000  0.000  0.000 -0.000  0.990
+1   1   1   off     0.000  0.000  1.000  1.000  0.000
+1   1   1   blend   0.000  0.000  1.000  1.000  0.990
+1   1   1   solo    0.000  0.000  0.000 -0.000  0.990
+2   0   0   off     0.000  0.500  0.500  0.000  0.000
+2   0   0   blend   0.000  0.500  0.500  0.000  0.990
+2   0   0   solo    0.000  0.000  0.000  0.000  0.990
+2   0   1   off     0.000  0.500  0.500  0.000  0.000
+2   0   1   blend   0.000  0.500  0.500  0.000  0.990
+2   0   1   solo    0.000  0.000  0.000  0.000  0.990
+2   1   0   off     0.000  1.000  1.000  0.000  0.000
+2   1   0   blend   0.000  1.000  1.000  0.000  0.990
+2   1   0   solo    0.000 -0.000  0.000  0.000  0.990
+2   1   1   off     0.000  1.000  1.000  0.000  0.000
+2   1   1   blend   0.000  1.000  1.000  0.000  0.990
+2   1   1   solo    0.000 -0.000  0.000  0.000  0.990
+3   0   0   off     0.500  0.000 -0.000  0.500  0.000
+3   0   0   blend   0.500  0.000 -0.000  0.500  0.990
+3   0   0   solo    0.000  0.000 -0.000  0.000  0.990
+3   0   1   off    -0.500  0.000 -0.000  0.500  0.000
+3   0   1   blend  -0.500  0.000 -0.000  0.500  0.990
+3   0   1   solo    0.000  0.000 -0.000  0.000  0.990
+3   1   0   off     1.000  0.000 -0.000  1.000  0.000
+3   1   0   blend   1.000  0.000 -0.000  1.000  0.990
+3   1   0   solo   -0.000  0.000 -0.000  0.000  0.990
+3   1   1   off    -1.000  0.000 -0.000  1.000  0.000
+3   1   1   blend  -1.000  0.000 -0.000  1.000  0.990
+3   1   1   solo    0.000  0.000 -0.000  0.000  0.990
+4   0   0   off     0.500  0.500  0.000  0.000  0.000
+4   0   0   blend   0.500  0.500  0.000  0.000  0.990
+4   0   0   solo    0.000  0.000  0.000  0.000  0.990
+4   0   1   off    -0.500  0.500  0.000  0.000  0.000
+4   0   1   blend  -0.500  0.500  0.000  0.000  0.990
+4   0   1   solo    0.000  0.000  0.000  0.000  0.990
+4   1   0   off     1.000  1.000  0.000  0.000  0.000
+4   1   0   blend   1.000  1.000  0.000  0.000  0.990
+4   1   0   solo    0.000 -0.000  0.000  0.000  0.990
+4   1   1   off    -1.000  1.000  0.000  0.000  0.000
+4   1   1   blend  -1.000  1.000  0.000  0.000  0.990
+4   1   1   solo   -0.000 -0.000  0.000  0.000  0.990
+5   0   0   off     1.000  0.000  0.000  0.000  0.000
+5   0   0   blend   1.000  0.000  0.000  0.000  0.990
+5   0   0   solo    0.000  0.000  0.000  0.000  0.990
+5   0   1   off    -1.000  0.000  0.000  0.000  0.000
+5   0   1   blend  -1.000  0.000  0.000  0.000  0.990
+5   0   1   solo    0.000  0.000  0.000  0.000  0.990
+5   1   0   off     1.000  0.000  0.000  0.000  0.000
+5   1   0   blend   1.000  0.000  0.000  0.000  0.990
+5   1   0   solo    0.000  0.000  0.000  0.000  0.990
+5   1   1   off    -1.000  0.000  0.000  0.000  0.000
+5   1   1   blend  -1.000  0.000  0.000  0.000  0.990
+5   1   1   solo    0.000  0.000  0.000  0.000  0.990
+
+HUM with magnet polarity: classic (N and M are a normal RWRP pair; A opposite M)
+  (string = summed signal share, hum = summed hum share; 1.0 = one single coil)
+  1 Bridge HB (A+B)          alone    in-phase      hum +0.00  -> QUIET
+  2 Bridge A + Middle        parallel in-phase      hum +0.00  -> QUIET
+  2 Bridge A + Middle        series   in-phase      hum +0.00  -> QUIET
+  3 Neck + bridge coil (Tele) parallel in-phase      hum -0.00  -> QUIET
+  3 Neck + bridge coil (Tele) parallel out-of-phase  hum -1.00  -> hums like a single coil
+  3 Neck + bridge coil (Tele) series   in-phase      hum -0.00  -> QUIET
+  3 Neck + bridge coil (Tele) series   out-of-phase  hum -2.00  -> hums like a single coil
+  4 Neck + Middle            parallel in-phase      hum +0.00  -> QUIET
+  4 Neck + Middle            parallel out-of-phase  hum -1.00  -> hums like a single coil
+  4 Neck + Middle            series   in-phase      hum +0.00  -> QUIET
+  4 Neck + Middle            series   out-of-phase  hum -2.00  -> hums like a single coil
+  5 Neck                     alone    in-phase      hum +1.00  -> hums like a single coil
+
+CHECKS: all 60 states pass

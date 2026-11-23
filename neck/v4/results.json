@@ -1,0 +1,1630 @@
+{
+ "meta": {
+  "model": "Supercaster II neck v4",
+  "units": "inches, lb, degrees unless stated",
+  "frame": "x nut to bridge, y + bass, z up, z = 0 board-top centreline",
+  "depth_convention": "wood only: board-top centreline to the deepest point of the back, no frets (assumed)"
+ },
+ "params": {
+  "scale": {
+   "value": 25.5,
+   "tag": "fixed",
+   "note": "scale length"
+  },
+  "n_frets": {
+   "value": 22,
+   "tag": "fixed",
+   "note": "frets"
+  },
+  "w_nut": {
+   "value": 1.6875,
+   "tag": "fixed",
+   "note": "board width at the nut, 1-11/16"
+  },
+  "w_vintage_nut": {
+   "value": 1.65,
+   "tag": "lit",
+   "note": "vintage nut width that sets the string spacing"
+  },
+  "w_gain_21": {
+   "value": 0.55,
+   "tag": "lit",
+   "note": "vintage width gain nut to fret 21 (1.650 to 2.200)"
+  },
+  "r_nut": {
+   "value": 7.25,
+   "tag": "fixed",
+   "note": "board radius at the nut"
+  },
+  "r_bridge": {
+   "value": 9.5,
+   "tag": "fixed",
+   "note": "board radius at the bridge end of the scale (x = 25.5)"
+  },
+  "d1": {
+   "value": 0.9,
+   "tag": "fixed",
+   "note": "wood depth at fret 1"
+  },
+  "d12": {
+   "value": 0.96,
+   "tag": "fixed",
+   "note": "wood depth at fret 12 (earlier choice, kept)"
+  },
+  "fullness": {
+   "value": 0.45,
+   "tag": "judged",
+   "note": "back exponent m in (1-w^2)^m: 0.50 ellipse, lower is fuller shoulders"
+  },
+  "eps_nut": {
+   "value": 0.08,
+   "tag": "judged",
+   "note": "asymmetry at the nut: apex offset as a fraction of the half width, + = bass side fuller"
+  },
+  "x_fade": {
+   "value": 14.778571,
+   "tag": "derived",
+   "note": "asymmetry is zero from here on (fret 15, heel start)"
+  },
+  "board_t": {
+   "value": 0.14,
+   "tag": "judged",
+   "note": "round-laminate rosewood thickness, uniform, measured on the centreline"
+  },
+  "fret_h": {
+   "value": 0.043,
+   "tag": "lit",
+   "note": "crown height, Jescar FW43080-S"
+  },
+  "fret_w": {
+   "value": 0.08,
+   "tag": "lit",
+   "note": "crown width, Jescar FW43080-S"
+  },
+  "tang_depth": {
+   "value": 0.05,
+   "tag": "lit",
+   "note": "tang depth as transcribed earlier, not re-verified: measure the wire"
+  },
+  "slot_extra": {
+   "value": 0.008,
+   "tag": "judged",
+   "note": "slot depth beyond the tang for glue"
+  },
+  "slot_stop": {
+   "value": 0.075,
+   "tag": "judged",
+   "note": "blind slot ends this far from the board side"
+  },
+  "land": {
+   "value": 0.055,
+   "tag": "judged",
+   "note": "full-height land each side of a fret centreline (crown half width 0.040 + 0.015)"
+  },
+  "l0": {
+   "value": 0.33,
+   "tag": "judged",
+   "note": "deepest point of a scallop sits this far behind the bridge-side fret (or mid-cell if shorter)"
+  },
+  "d_nut": {
+   "value": 0.03,
+   "tag": "fixed",
+   "note": "scallop depth under the high E in cell 1"
+  },
+  "d_peak": {
+   "value": 0.055,
+   "tag": "judged",
+   "note": "largest scallop depth under the high E (earlier law: 0.064)"
+  },
+  "x_peak": {
+   "value": 13.3,
+   "tag": "judged",
+   "note": "depth reaches d_peak where the deepest point is at this x (cells 13-14)"
+  },
+  "k_ramp": {
+   "value": 0.7,
+   "tag": "judged",
+   "note": "cap: depth <= k_ramp * (shorter ramp)^2, keeps slide catch at the level of a medium-jumbo fret"
+  },
+  "tilt": {
+   "value": 0.5,
+   "tag": "judged",
+   "note": "scallop is this fraction shallower at the bass edge than at the treble edge, linear across"
+  },
+  "roll_drop": {
+   "value": 0.11,
+   "tag": "judged",
+   "note": "B: roll bottom below the nominal board corner, a straight line"
+  },
+  "af_treble": {
+   "value": 0.048,
+   "tag": "judged",
+   "note": "envelope width at a fret, treble: full crown height starts this far from the side"
+  },
+  "am_treble": {
+   "value": 0.062,
+   "tag": "judged",
+   "note": "roll width on top between frets, treble"
+  },
+  "af_bass": {
+   "value": 0.058,
+   "tag": "judged",
+   "note": "envelope width at a fret, bass"
+  },
+  "am_bass": {
+   "value": 0.085,
+   "tag": "judged",
+   "note": "roll width on top between frets, bass"
+  },
+  "cap_n": {
+   "value": 2.0,
+   "tag": "judged",
+   "note": "the envelope top stands at crown height on the lands and falls as (1-g)^n into the cell"
+  },
+  "dress_q": {
+   "value": 2.5,
+   "tag": "judged",
+   "note": "model of the hand-dressed ridge between crown and end face (p-norm blend)"
+  },
+  "rod_d": {
+   "value": 0.1875,
+   "tag": "fixed",
+   "note": "single-acting rod diameter"
+  },
+  "rod_x_anchor": {
+   "value": 0.8,
+   "tag": "judged",
+   "note": "fixed anchor centre"
+  },
+  "rod_z_anchor": {
+   "value": -0.46,
+   "tag": "judged",
+   "note": "rod axis at the anchor"
+  },
+  "rod_x_wheel": {
+   "value": 18.7,
+   "tag": "judged",
+   "note": "spoke wheel centre (board ends at 18.594)"
+  },
+  "rod_z_wheel": {
+   "value": -0.4,
+   "tag": "judged",
+   "note": "rod axis at the wheel"
+  },
+  "rod_sag": {
+   "value": 0.26,
+   "tag": "judged",
+   "note": "parabolic sag of the rod axis below the chord between its ends"
+  },
+  "chan_w": {
+   "value": 0.2,
+   "tag": "judged",
+   "note": "rod channel width (rod + sleeve)"
+  },
+  "relief_target": {
+   "value": 0.012,
+   "tag": "fixed",
+   "note": "playing relief the owner asked for (or more)"
+  },
+  "relief_built": {
+   "value": 0.009,
+   "tag": "judged",
+   "note": "relief machined into the board top, gap under a fret 1-17 chord, no load"
+  },
+  "rod_preload_min": {
+   "value": 40.0,
+   "tag": "judged",
+   "note": "least rod tension that keeps it quiet, lb"
+  },
+  "x_clamp": {
+   "value": 15.6875,
+   "tag": "lit",
+   "note": "body joint (pocket datum from body/carve): neck treated as fixed from here"
+  },
+  "nut_clear": {
+   "value": 0.02,
+   "tag": "judged",
+   "note": "string underside above the fret-top plane at the nut"
+  },
+  "action_12": {
+   "value": 0.07,
+   "tag": "judged",
+   "note": "string underside above fret 12 (plays hard)"
+  },
+  "bridge_spread": {
+   "value": 2.21875,
+   "tag": "lit",
+   "note": "vintage 2-7/32 E-to-E at the saddles (Vega-Trem VT1: 2.106)"
+  },
+  "nut_spread": {
+   "value": 1.375,
+   "tag": "lit",
+   "note": "E-to-E at a vintage 1.650 nut"
+  },
+  "head_face_drop": {
+   "value": 0.44,
+   "tag": "judged",
+   "note": "headstock face below the board-top centreline"
+  },
+  "head_t": {
+   "value": 0.56,
+   "tag": "lit",
+   "note": "headstock thickness"
+  },
+  "post_x1": {
+   "value": 1.85,
+   "tag": "judged",
+   "note": "nut face to the nearest post"
+  },
+  "post_pitch": {
+   "value": 0.9375,
+   "tag": "lit",
+   "note": "post pitch along the tuner row, 15/16"
+  },
+  "post_hole_tall": {
+   "value": 0.787402,
+   "tag": "lit",
+   "note": "Gotoh staggered: base plate to string hole, tall posts"
+  },
+  "post_hole_short": {
+   "value": 0.728346,
+   "tag": "lit",
+   "note": "Gotoh staggered: base plate to string hole, short posts"
+  },
+  "tuner_mass_g": {
+   "value": 28.0,
+   "tag": "lit",
+   "note": "SD91 MG-T 27 g + bushing"
+  },
+  "mu_nut": {
+   "value": 0.2,
+   "tag": "judged",
+   "note": "string on polished bone, lightly lubricated (0.10 to 0.30 spans graphite to dry bone)"
+  },
+  "E_maple": {
+   "value": 12.4,
+   "tag": "lit",
+   "note": "roasted curly maple E_L, GPa (body/acoustics/inputs/wood-properties.json)"
+  },
+  "rho_maple": {
+   "value": 678.0,
+   "tag": "lit",
+   "note": "kg/m3"
+  },
+  "G_maple_LR": {
+   "value": 1.54,
+   "tag": "lit",
+   "note": "GPa"
+  },
+  "G_maple_LT": {
+   "value": 0.873,
+   "tag": "lit",
+   "note": "GPa"
+  },
+  "E_rw": {
+   "value": 13.5,
+   "tag": "lit",
+   "note": "East Indian rosewood E_L, GPa"
+  },
+  "rho_rw": {
+   "value": 855.0,
+   "tag": "lit",
+   "note": "kg/m3"
+  },
+  "G_rw_LR": {
+   "value": 1.19,
+   "tag": "lit",
+   "note": "GPa"
+  },
+  "G_rw_LT": {
+   "value": 0.92,
+   "tag": "lit",
+   "note": "GPa"
+  },
+  "rho_steel": {
+   "value": 7850.0,
+   "tag": "lit",
+   "note": "kg/m3"
+  },
+  "season_strain": {
+   "value": 0.0001,
+   "tag": "judged",
+   "note": "seasonal difference in lengthwise strain between rosewood and roasted maple, +/-"
+  }
+ },
+ "fret_x": [
+  0.0,
+  1.431205,
+  2.782083,
+  4.057141,
+  5.260637,
+  6.396585,
+  7.468777,
+  8.480792,
+  9.436007,
+  10.337609,
+  11.188609,
+  11.991846,
+  12.75,
+  13.465603,
+  14.141041,
+  14.778571,
+  15.380318,
+  15.948292,
+  16.484389,
+  16.990396,
+  17.468003,
+  17.918805,
+  18.344304
+ ],
+ "sections": {
+  "nut": {
+   "x": 0.0,
+   "width": 1.6875,
+   "depth": 0.892413,
+   "radius": 7.25,
+   "eps": 0.08,
+   "apex_offset_toward_bass": 0.067078,
+   "shoulder_level": -0.190242,
+   "edge_drop": 0.049265,
+   "thickness_bass_at_0p5": 0.773965,
+   "thickness_treble_at_0p5": 0.724468,
+   "back_width_at_half_depth": 1.490906,
+   "EI_vertical_lb_in2": 124251.087756,
+   "EI_vertical_N_m2": 356.577592,
+   "neutral_axis_z": -0.393776,
+   "mass_per_length_kg_m": 0.568824,
+   "law_note": ""
+  },
+  "fret 1": {
+   "x": 1.431205,
+   "width": 1.731429,
+   "depth": 0.9,
+   "radius": 7.376283,
+   "eps": 0.072253,
+   "apex_offset_toward_bass": 0.062331,
+   "shoulder_level": -0.191972,
+   "edge_drop": 0.050978,
+   "thickness_bass_at_0p5": 0.785634,
+   "thickness_treble_at_0p5": 0.741199,
+   "back_width_at_half_depth": 1.531016,
+   "EI_vertical_lb_in2": 129757.070879,
+   "EI_vertical_N_m2": 372.378743,
+   "neutral_axis_z": -0.394449,
+   "mass_per_length_kg_m": 0.710308,
+   "law_note": ""
+  },
+  "fret 5": {
+   "x": 6.396585,
+   "width": 1.883837,
+   "depth": 0.926321,
+   "radius": 7.814405,
+   "eps": 0.045374,
+   "apex_offset_toward_bass": 0.042857,
+   "shoulder_level": -0.198023,
+   "edge_drop": 0.056975,
+   "thickness_bass_at_0p5": 0.822546,
+   "thickness_treble_at_0p5": 0.795309,
+   "back_width_at_half_depth": 1.667667,
+   "EI_vertical_lb_in2": 149374.024902,
+   "EI_vertical_N_m2": 428.675765,
+   "neutral_axis_z": -0.402926,
+   "mass_per_length_kg_m": 0.779446,
+   "law_note": ""
+  },
+  "fret 9": {
+   "x": 10.337609,
+   "width": 2.004803,
+   "depth": 0.947212,
+   "radius": 8.162142,
+   "eps": 0.02404,
+   "apex_offset_toward_bass": 0.024058,
+   "shoulder_level": -0.202874,
+   "edge_drop": 0.061787,
+   "thickness_bass_at_0p5": 0.848859,
+   "thickness_treble_at_0p5": 0.83473,
+   "back_width_at_half_depth": 1.776255,
+   "EI_vertical_lb_in2": 169926.293735,
+   "EI_vertical_N_m2": 487.656967,
+   "neutral_axis_z": -0.413622,
+   "mass_per_length_kg_m": 0.837008,
+   "law_note": ""
+  },
+  "fret 12": {
+   "x": 12.75,
+   "width": 2.078849,
+   "depth": 0.96,
+   "radius": 8.375,
+   "eps": 0.010981,
+   "apex_offset_toward_bass": 0.011434,
+   "shoulder_level": -0.205862,
+   "edge_drop": 0.064752,
+   "thickness_bass_at_0p5": 0.863982,
+   "thickness_treble_at_0p5": 0.857612,
+   "back_width_at_half_depth": 1.84186,
+   "EI_vertical_lb_in2": 184851.499814,
+   "EI_vertical_N_m2": 530.489542,
+   "neutral_axis_z": -0.420931,
+   "mass_per_length_kg_m": 0.872021,
+   "law_note": ""
+  },
+  "fret 15": {
+   "x": 14.778571,
+   "width": 2.141114,
+   "depth": 0.970753,
+   "radius": 8.553992,
+   "eps": 0.0,
+   "apex_offset_toward_bass": 0.0,
+   "shoulder_level": -0.208384,
+   "edge_drop": 0.067256,
+   "thickness_bass_at_0p5": 0.876215,
+   "thickness_treble_at_0p5": 0.876215,
+   "back_width_at_half_depth": 1.897027,
+   "EI_vertical_lb_in2": 198678.049238,
+   "EI_vertical_N_m2": 570.169176,
+   "neutral_axis_z": -0.427921,
+   "mass_per_length_kg_m": 0.902662,
+   "law_note": ""
+  },
+  "fret 17": {
+   "x": 15.948292,
+   "width": 2.177017,
+   "depth": 0.976954,
+   "radius": 8.657202,
+   "eps": 0.0,
+   "apex_offset_toward_bass": 0.0,
+   "shoulder_level": -0.209843,
+   "edge_drop": 0.068704,
+   "thickness_bass_at_0p5": 0.884907,
+   "thickness_treble_at_0p5": 0.884907,
+   "back_width_at_half_depth": 1.928837,
+   "EI_vertical_lb_in2": 206621.603909,
+   "EI_vertical_N_m2": 592.965705,
+   "neutral_axis_z": -0.432007,
+   "mass_per_length_kg_m": 0.919888,
+   "law_note": "inside the heel blend: board, edge and width follow the law, the back is the body heel loft"
+  }
+ },
+ "scallop": {
+  "cells": [
+   {
+    "cell": 1,
+    "length": 1.431205,
+    "deepest_x": 1.101205,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 1.046205,
+    "depth_treble_edge": 0.03,
+    "depth_high_E": 0.02865,
+    "depth_centre": 0.0225,
+    "depth_low_E": 0.01635,
+    "depth_bass_edge": 0.015,
+    "min_concave_radius": 0.436621,
+    "catch_up_deg": 31.556179,
+    "catch_down_deg": 29.231154
+   },
+   {
+    "cell": 2,
+    "length": 1.350878,
+    "deepest_x": 2.452083,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 0.965878,
+    "depth_treble_edge": 0.032768,
+    "depth_high_E": 0.031343,
+    "depth_centre": 0.024576,
+    "depth_low_E": 0.017809,
+    "depth_bass_edge": 0.016384,
+    "min_concave_radius": 0.399733,
+    "catch_up_deg": 31.668311,
+    "catch_down_deg": 29.231154
+   },
+   {
+    "cell": 3,
+    "length": 1.275059,
+    "deepest_x": 3.727141,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 0.890059,
+    "depth_treble_edge": 0.035382,
+    "depth_high_E": 0.033891,
+    "depth_centre": 0.026536,
+    "depth_low_E": 0.019181,
+    "depth_bass_edge": 0.017691,
+    "min_concave_radius": 0.370211,
+    "catch_up_deg": 31.892983,
+    "catch_down_deg": 29.34064
+   },
+   {
+    "cell": 4,
+    "length": 1.203495,
+    "deepest_x": 4.930637,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 0.818495,
+    "depth_treble_edge": 0.037848,
+    "depth_high_E": 0.036301,
+    "depth_centre": 0.028386,
+    "depth_low_E": 0.020471,
+    "depth_bass_edge": 0.018924,
+    "min_concave_radius": 0.346086,
+    "catch_up_deg": 32.005524,
+    "catch_down_deg": 29.450245
+   },
+   {
+    "cell": 5,
+    "length": 1.135948,
+    "deepest_x": 6.066585,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 0.750948,
+    "depth_treble_edge": 0.040176,
+    "depth_high_E": 0.038579,
+    "depth_centre": 0.030132,
+    "depth_low_E": 0.021685,
+    "depth_bass_edge": 0.020088,
+    "min_concave_radius": 0.326032,
+    "catch_up_deg": 32.109982,
+    "catch_down_deg": 29.450245
+   },
+   {
+    "cell": 6,
+    "length": 1.072192,
+    "deepest_x": 7.138777,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 0.687192,
+    "depth_treble_edge": 0.042373,
+    "depth_high_E": 0.040732,
+    "depth_centre": 0.03178,
+    "depth_low_E": 0.022828,
+    "depth_bass_edge": 0.021187,
+    "min_concave_radius": 0.309125,
+    "catch_up_deg": 32.231023,
+    "catch_down_deg": 29.559968
+   },
+   {
+    "cell": 7,
+    "length": 1.012015,
+    "deepest_x": 8.150792,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 0.627015,
+    "depth_treble_edge": 0.044447,
+    "depth_high_E": 0.042767,
+    "depth_centre": 0.033335,
+    "depth_low_E": 0.023904,
+    "depth_bass_edge": 0.022224,
+    "min_concave_radius": 0.2947,
+    "catch_up_deg": 32.343982,
+    "catch_down_deg": 29.779773
+   },
+   {
+    "cell": 8,
+    "length": 0.955215,
+    "deepest_x": 9.106007,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 0.570215,
+    "depth_treble_edge": 0.046405,
+    "depth_high_E": 0.04469,
+    "depth_centre": 0.034804,
+    "depth_low_E": 0.024917,
+    "depth_bass_edge": 0.023202,
+    "min_concave_radius": 0.282268,
+    "catch_up_deg": 32.457082,
+    "catch_down_deg": 30.107864
+   },
+   {
+    "cell": 9,
+    "length": 0.901603,
+    "deepest_x": 10.007609,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 0.516603,
+    "depth_treble_edge": 0.048253,
+    "depth_high_E": 0.046508,
+    "depth_centre": 0.036189,
+    "depth_low_E": 0.025871,
+    "depth_bass_edge": 0.024126,
+    "min_concave_radius": 0.27146,
+    "catch_up_deg": 32.570325,
+    "catch_down_deg": 30.331415
+   },
+   {
+    "cell": 10,
+    "length": 0.851,
+    "deepest_x": 10.858609,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 0.466,
+    "depth_treble_edge": 0.049997,
+    "depth_high_E": 0.048225,
+    "depth_centre": 0.037497,
+    "depth_low_E": 0.02677,
+    "depth_bass_edge": 0.024998,
+    "min_concave_radius": 0.26199,
+    "catch_up_deg": 32.570325,
+    "catch_down_deg": 30.663894
+   },
+   {
+    "cell": 11,
+    "length": 0.803237,
+    "deepest_x": 11.661846,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 0.418237,
+    "depth_treble_edge": 0.051643,
+    "depth_high_E": 0.049847,
+    "depth_centre": 0.038732,
+    "depth_low_E": 0.027618,
+    "depth_bass_edge": 0.025821,
+    "min_concave_radius": 0.253639,
+    "catch_up_deg": 32.701059,
+    "catch_down_deg": 31.108988
+   },
+   {
+    "cell": 12,
+    "length": 0.758154,
+    "deepest_x": 12.42,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 0.373154,
+    "depth_treble_edge": 0.052938,
+    "depth_high_E": 0.051129,
+    "depth_centre": 0.039703,
+    "depth_low_E": 0.028278,
+    "depth_bass_edge": 0.026469,
+    "min_concave_radius": 0.247436,
+    "catch_up_deg": 32.797241,
+    "catch_down_deg": 31.668311
+   },
+   {
+    "cell": 13,
+    "length": 0.715603,
+    "deepest_x": 13.135603,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 0.330603,
+    "depth_treble_edge": 0.052938,
+    "depth_high_E": 0.051158,
+    "depth_centre": 0.039703,
+    "depth_low_E": 0.028248,
+    "depth_bass_edge": 0.026469,
+    "min_concave_radius": 0.247436,
+    "catch_up_deg": 32.718881,
+    "catch_down_deg": 32.457082
+   },
+   {
+    "cell": 14,
+    "length": 0.675439,
+    "deepest_x": 13.811041,
+    "behind_fret": 0.33,
+    "ramp_bridge": 0.275,
+    "ramp_nut": 0.290439,
+    "depth_treble_edge": 0.052938,
+    "depth_high_E": 0.051186,
+    "depth_centre": 0.039703,
+    "depth_low_E": 0.02822,
+    "depth_bass_edge": 0.026469,
+    "min_concave_radius": 0.247436,
+    "catch_up_deg": 32.797241,
+    "catch_down_deg": 32.910916
+   },
+   {
+    "cell": 15,
+    "length": 0.637529,
+    "deepest_x": 14.459806,
+    "behind_fret": 0.318765,
+    "ramp_bridge": 0.263765,
+    "ramp_nut": 0.263765,
+    "depth_treble_edge": 0.0487,
+    "depth_high_E": 0.047113,
+    "depth_centre": 0.036525,
+    "depth_low_E": 0.025938,
+    "depth_bass_edge": 0.02435,
+    "min_concave_radius": 0.247436,
+    "catch_up_deg": 32.910916,
+    "catch_down_deg": 32.910916
+   },
+   {
+    "cell": 16,
+    "length": 0.601748,
+    "deepest_x": 15.079444,
+    "behind_fret": 0.300874,
+    "ramp_bridge": 0.245874,
+    "ramp_nut": 0.245874,
+    "depth_treble_edge": 0.042318,
+    "depth_high_E": 0.040958,
+    "depth_centre": 0.031738,
+    "depth_low_E": 0.022519,
+    "depth_bass_edge": 0.021159,
+    "min_concave_radius": 0.247436,
+    "catch_up_deg": 32.910916,
+    "catch_down_deg": 33.024737
+   },
+   {
+    "cell": 17,
+    "length": 0.567974,
+    "deepest_x": 15.664305,
+    "behind_fret": 0.283987,
+    "ramp_bridge": 0.228987,
+    "ramp_nut": 0.228987,
+    "depth_treble_edge": 0.036705,
+    "depth_high_E": 0.035541,
+    "depth_centre": 0.027528,
+    "depth_low_E": 0.019516,
+    "depth_bass_edge": 0.018352,
+    "min_concave_radius": 0.247436,
+    "catch_up_deg": 33.024737,
+    "catch_down_deg": 33.024737
+   },
+   {
+    "cell": 18,
+    "length": 0.536096,
+    "deepest_x": 16.21634,
+    "behind_fret": 0.268048,
+    "ramp_bridge": 0.213048,
+    "ramp_nut": 0.213048,
+    "depth_treble_edge": 0.031773,
+    "depth_high_E": 0.030778,
+    "depth_centre": 0.023829,
+    "depth_low_E": 0.016881,
+    "depth_bass_edge": 0.015886,
+    "min_concave_radius": 0.247436,
+    "catch_up_deg": 33.138706,
+    "catch_down_deg": 33.138706
+   },
+   {
+    "cell": 19,
+    "length": 0.506007,
+    "deepest_x": 16.737392,
+    "behind_fret": 0.253004,
+    "ramp_bridge": 0.198004,
+    "ramp_nut": 0.198004,
+    "depth_treble_edge": 0.027444,
+    "depth_high_E": 0.026595,
+    "depth_centre": 0.020583,
+    "depth_low_E": 0.014571,
+    "depth_bass_edge": 0.013722,
+    "min_concave_radius": 0.247436,
+    "catch_up_deg": 33.252822,
+    "catch_down_deg": 33.138706
+   },
+   {
+    "cell": 20,
+    "length": 0.477607,
+    "deepest_x": 17.2292,
+    "behind_fret": 0.238804,
+    "ramp_bridge": 0.183804,
+    "ramp_nut": 0.183804,
+    "depth_treble_edge": 0.023649,
+    "depth_high_E": 0.022925,
+    "depth_centre": 0.017736,
+    "depth_low_E": 0.012548,
+    "depth_bass_edge": 0.011824,
+    "min_concave_radius": 0.247436,
+    "catch_up_deg": 33.252822,
+    "catch_down_deg": 33.252822
+   },
+   {
+    "cell": 21,
+    "length": 0.450801,
+    "deepest_x": 17.693404,
+    "behind_fret": 0.225401,
+    "ramp_bridge": 0.170401,
+    "ramp_nut": 0.170401,
+    "depth_treble_edge": 0.020325,
+    "depth_high_E": 0.01971,
+    "depth_centre": 0.015244,
+    "depth_low_E": 0.010778,
+    "depth_bass_edge": 0.010163,
+    "min_concave_radius": 0.247436,
+    "catch_up_deg": 33.252822,
+    "catch_down_deg": 33.292307
+   },
+   {
+    "cell": 22,
+    "length": 0.4255,
+    "deepest_x": 18.131555,
+    "behind_fret": 0.21275,
+    "ramp_bridge": 0.15775,
+    "ramp_nut": 0.15775,
+    "depth_treble_edge": 0.01742,
+    "depth_high_E": 0.016897,
+    "depth_centre": 0.013065,
+    "depth_low_E": 0.009232,
+    "depth_bass_edge": 0.00871,
+    "min_concave_radius": 0.247436,
+    "catch_up_deg": 33.252822,
+    "catch_down_deg": 33.252822
+   }
+  ],
+  "catch_reference": {
+   "fingertip_r_0.25": {
+    "vintage_043x080_flat": 31.601045,
+    "medium_047x104_flat": 32.005554,
+    "tall_narrow_055x090_flat": 35.732501,
+    "jumbo_058x110_flat": 35.757499,
+    "v4_worst": 35.169814
+   },
+   "fingertip_r_0.30": {
+    "vintage_043x080_flat": 29.121784,
+    "medium_047x104_flat": 29.66981,
+    "tall_narrow_055x090_flat": 32.910916,
+    "jumbo_058x110_flat": 33.185454,
+    "v4_worst": 33.292307
+   },
+   "fingertip_r_0.40": {
+    "vintage_043x080_flat": 25.467586,
+    "medium_047x104_flat": 26.183691,
+    "tall_narrow_055x090_flat": 28.860867,
+    "jumbo_058x110_flat": 29.176429,
+    "v4_worst": 30.724694
+   }
+  },
+  "depth_options": [
+   {
+    "d_peak": 0.038,
+    "k_ramp": 0.5,
+    "depth_max": 0.037813,
+    "depth_cell_22": 0.012443,
+    "catch_worst_deg": 32.343982,
+    "rosewood_left": 0.102187
+   },
+   {
+    "d_peak": 0.055,
+    "k_ramp": 0.7,
+    "depth_max": 0.052938,
+    "depth_cell_22": 0.01742,
+    "catch_worst_deg": 33.292307,
+    "rosewood_left": 0.087062
+   },
+   {
+    "d_peak": 0.064,
+    "k_ramp": 1.0,
+    "depth_max": 0.064,
+    "depth_cell_22": 0.024885,
+    "catch_worst_deg": 34.518188,
+    "rosewood_left": 0.076
+   }
+  ]
+ },
+ "edge": {
+  "margins": {
+   "nut": {
+    "treble": {
+     "string_to_edge_v4": 0.15625,
+     "string_to_edge_vintage": 0.1375
+    },
+    "bass": {
+     "string_to_edge_v4": 0.15625,
+     "string_to_edge_vintage": 0.1375
+    }
+   },
+   "fret_1": {
+    "treble": {
+     "string_to_edge_v4": 0.154537,
+     "string_to_edge_vintage": 0.135787,
+     "v4_full": 0.107037,
+     "vintage_full": 0.105678,
+     "v4_usable": 0.118537,
+     "vintage_usable": 0.109179,
+     "gain_full": 0.001359,
+     "gain_usable": 0.009358,
+     "steel_toe_from_side": 0.0148,
+     "full_from_side": 0.0475
+    },
+    "bass": {
+     "string_to_edge_v4": 0.154537,
+     "string_to_edge_vintage": 0.135787,
+     "v4_full": 0.097137,
+     "vintage_full": 0.105678,
+     "v4_usable": 0.110987,
+     "vintage_usable": 0.109179,
+     "gain_full": -0.008541,
+     "gain_usable": 0.001808,
+     "steel_toe_from_side": 0.01795,
+     "full_from_side": 0.0574
+    }
+   },
+   "fret_12": {
+    "treble": {
+     "string_to_edge_v4": 0.140987,
+     "string_to_edge_vintage": 0.122237,
+     "v4_full": 0.093487,
+     "vintage_full": 0.092128,
+     "v4_usable": 0.104987,
+     "vintage_usable": 0.095629,
+     "gain_full": 0.001359,
+     "gain_usable": 0.009358,
+     "steel_toe_from_side": 0.01485,
+     "full_from_side": 0.0475
+    },
+    "bass": {
+     "string_to_edge_v4": 0.140987,
+     "string_to_edge_vintage": 0.122237,
+     "v4_full": 0.083587,
+     "vintage_full": 0.092128,
+     "v4_usable": 0.097437,
+     "vintage_usable": 0.095629,
+     "gain_full": -0.008541,
+     "gain_usable": 0.001808,
+     "steel_toe_from_side": 0.01795,
+     "full_from_side": 0.0574
+    }
+   },
+   "fret_21": {
+    "treble": {
+     "string_to_edge_v4": 0.134799,
+     "string_to_edge_vintage": 0.116049,
+     "v4_full": 0.087299,
+     "vintage_full": 0.08594,
+     "v4_usable": 0.098749,
+     "vintage_usable": 0.089441,
+     "gain_full": 0.001359,
+     "gain_usable": 0.009308,
+     "steel_toe_from_side": 0.01485,
+     "full_from_side": 0.0475
+    },
+    "bass": {
+     "string_to_edge_v4": 0.134799,
+     "string_to_edge_vintage": 0.116049,
+     "v4_full": 0.077399,
+     "vintage_full": 0.08594,
+     "v4_usable": 0.091249,
+     "vintage_usable": 0.089441,
+     "gain_full": -0.008541,
+     "gain_usable": 0.001808,
+     "steel_toe_from_side": 0.01795,
+     "full_from_side": 0.0574
+    }
+   }
+  },
+  "feel": {
+   "v4": {
+    "treble": {
+     "15_deg": {
+      "wave": 0.01305,
+      "wood_wave": 0.01305,
+      "wood_max_slope_deg": 6.67035,
+      "fret_end_step": -0.0
+     },
+     "30_deg": {
+      "wave": 0.039566,
+      "wood_wave": 0.035639,
+      "wood_max_slope_deg": 18.315438,
+      "fret_end_step": 0.003926
+     },
+     "45_deg": {
+      "wave": 0.065404,
+      "wood_wave": 0.051584,
+      "wood_max_slope_deg": 23.894918,
+      "fret_end_step": 0.013816
+     },
+     "60_deg": {
+      "wave": 0.084249,
+      "wood_wave": 0.05872,
+      "wood_max_slope_deg": 23.554298,
+      "fret_end_step": 0.025522
+     },
+     "fret12_string_to_full_height": 0.093487,
+     "fret12_string_to_usable": 0.104987,
+     "full_height_from_side": 0.0475
+    },
+    "bass": {
+     "15_deg": {
+      "wave": 0.009969,
+      "wood_wave": 0.009969,
+      "wood_max_slope_deg": 5.392576,
+      "fret_end_step": -0.0
+     },
+     "30_deg": {
+      "wave": 0.031373,
+      "wood_wave": 0.029172,
+      "wood_max_slope_deg": 15.831295,
+      "fret_end_step": 0.002199
+     },
+     "45_deg": {
+      "wave": 0.052258,
+      "wood_wave": 0.040857,
+      "wood_max_slope_deg": 22.467076,
+      "fret_end_step": 0.011396
+     },
+     "60_deg": {
+      "wave": 0.066353,
+      "wood_wave": 0.042889,
+      "wood_max_slope_deg": 21.393811,
+      "fret_end_step": 0.023455
+     },
+     "fret12_string_to_full_height": 0.083587,
+     "fret12_string_to_usable": 0.097437,
+     "full_height_from_side": 0.0574
+    }
+   },
+   "uniform roll + inboard dome": {
+    "treble": {
+     "15_deg": {
+      "wave": 0.0047,
+      "wood_wave": 0.0047,
+      "wood_max_slope_deg": 1.921448,
+      "fret_end_step": -0.0
+     },
+     "30_deg": {
+      "wave": 0.016702,
+      "wood_wave": 0.016702,
+      "wood_max_slope_deg": 6.693195,
+      "fret_end_step": -0.0
+     },
+     "45_deg": {
+      "wave": 0.039356,
+      "wood_wave": 0.031082,
+      "wood_max_slope_deg": 12.145161,
+      "fret_end_step": 0.008264
+     },
+     "60_deg": {
+      "wave": 0.067322,
+      "wood_wave": 0.043121,
+      "wood_max_slope_deg": 16.45249,
+      "fret_end_step": 0.024191
+     },
+     "fret12_string_to_full_height": 0.049587,
+     "fret12_string_to_usable": 0.062987,
+     "full_height_from_side": 0.0914
+    },
+    "bass": {
+     "15_deg": {
+      "wave": 0.002028,
+      "wood_wave": 0.002028,
+      "wood_max_slope_deg": 0.803092,
+      "fret_end_step": -0.0
+     },
+     "30_deg": {
+      "wave": 0.007611,
+      "wood_wave": 0.007611,
+      "wood_max_slope_deg": 2.998294,
+      "fret_end_step": -0.0
+     },
+     "45_deg": {
+      "wave": 0.0163,
+      "wood_wave": 0.015082,
+      "wood_max_slope_deg": 5.895568,
+      "fret_end_step": 0.001202
+     },
+     "60_deg": {
+      "wave": 0.043585,
+      "wood_wave": 0.021961,
+      "wood_max_slope_deg": 8.501808,
+      "fret_end_step": 0.021609
+     },
+     "fret12_string_to_full_height": 0.026587,
+     "fret12_string_to_usable": 0.039987,
+     "full_height_from_side": 0.1144
+    }
+   },
+   "vintage: no scallop, broken corner, 35 deg bevel": {
+    "treble": {
+     "15_deg": {
+      "wave": 0.002694,
+      "wood_wave": 0.0,
+      "wood_max_slope_deg": 1e-06,
+      "fret_end_step": 0.002694
+     },
+     "30_deg": {
+      "wave": 0.004339,
+      "wood_wave": 1e-06,
+      "wood_max_slope_deg": 1.5e-05,
+      "fret_end_step": 0.004339
+     },
+     "45_deg": {
+      "wave": 0.016459,
+      "wood_wave": 6e-06,
+      "wood_max_slope_deg": 7.2e-05,
+      "fret_end_step": 0.016446
+     },
+     "60_deg": {
+      "wave": 0.029115,
+      "wood_wave": 1.7e-05,
+      "wood_max_slope_deg": 0.000188,
+      "fret_end_step": 0.029092
+     },
+     "fret12_string_to_full_height": 0.092087,
+     "fret12_string_to_usable": 0.095587,
+     "full_height_from_side": 0.03015
+    },
+    "bass": {
+     "15_deg": {
+      "wave": 0.002694,
+      "wood_wave": 0.0,
+      "wood_max_slope_deg": 1e-06,
+      "fret_end_step": 0.002694
+     },
+     "30_deg": {
+      "wave": 0.004339,
+      "wood_wave": 1e-06,
+      "wood_max_slope_deg": 1.5e-05,
+      "fret_end_step": 0.004339
+     },
+     "45_deg": {
+      "wave": 0.016459,
+      "wood_wave": 6e-06,
+      "wood_max_slope_deg": 7.2e-05,
+      "fret_end_step": 0.016446
+     },
+     "60_deg": {
+      "wave": 0.029115,
+      "wood_wave": 1.7e-05,
+      "wood_max_slope_deg": 0.000188,
+      "fret_end_step": 0.029092
+     },
+     "fret12_string_to_full_height": 0.092087,
+     "fret12_string_to_usable": 0.095587,
+     "full_height_from_side": 0.03015
+    }
+   }
+  },
+  "checks": {
+   "under_rod_min": 0.142064,
+   "under_rod_min_x": 8.3,
+   "rod_depth_max": 0.690865,
+   "rod_curvature_per_in": 0.006492,
+   "rod_bend_stress_psi": 18257.857121,
+   "rod_bearing_lb_per_in_at_250lb": 1.622921,
+   "slot_depth": 0.058,
+   "rosewood_under_slot": 0.082,
+   "rosewood_under_deepest_scallop": 0.087062,
+   "roll_bottom_to_glue_line": 0.03,
+   "roll_height_at_deepest_scallop_treble": 0.057062,
+   "slot_end_from_side": 0.075,
+   "steel_toe_from_side_treble": 0.014637,
+   "steel_face_angle_at_toe_deg": 72.021146,
+   "wood_corner_included_angle_at_fret_deg": 107.978854,
+   "steel_nose_radius_top": 0.015059,
+   "min_concave_radius_scallop": 0.247436
+  }
+ },
+ "relief": {
+  "strings": {
+   "Eb standard": {
+    "total_tension_lb": 96.379073,
+    "relief": 0.008473,
+    "at_x": 8.5,
+    "nut_rise": 0.037942,
+    "relief_chord_1_to_22": 0.010764
+   },
+   "Eb drop C#": {
+    "total_tension_lb": 92.899311,
+    "relief": 0.008174,
+    "at_x": 8.5,
+    "nut_rise": 0.036605,
+    "relief_chord_1_to_22": 0.010384
+   },
+   "E standard": {
+    "total_tension_lb": 108.181852,
+    "relief": 0.009511,
+    "at_x": 8.5,
+    "nut_rise": 0.042588,
+    "relief_chord_1_to_22": 0.012082
+   }
+  },
+  "rod_relief_per_100lb": 0.004219,
+  "season_swing": 0.002619,
+  "season_strain": 0.0001,
+  "tight_fret_backbow_per_0p001_per_fret": 0.015589,
+  "stiffness_15pct_changes_string_relief_by": 0.001271,
+  "built_in_options": [
+   {
+    "built_in": 0.0,
+    "relief_rod_slack": 0.008473,
+    "rod_lb_for_target": -83.589743,
+    "rod_lb_dry_to_wet": [
+     -145.651648,
+     -21.527837
+    ],
+    "most_relief_available_worst_season": 0.004167,
+    "both_ways_ok": false
+   },
+   {
+    "built_in": 0.006,
+    "relief_rod_slack": 0.014473,
+    "rod_lb_for_target": 58.614361,
+    "rod_lb_dry_to_wet": [
+     -3.447545,
+     120.676266
+    ],
+    "most_relief_available_worst_season": 0.010167,
+    "both_ways_ok": false
+   },
+   {
+    "built_in": 0.009,
+    "relief_rod_slack": 0.017473,
+    "rod_lb_for_target": 129.716412,
+    "rod_lb_dry_to_wet": [
+     67.654507,
+     191.778318
+    ],
+    "most_relief_available_worst_season": 0.013167,
+    "both_ways_ok": true
+   },
+   {
+    "built_in": 0.012,
+    "relief_rod_slack": 0.020473,
+    "rod_lb_for_target": 200.818464,
+    "rod_lb_dry_to_wet": [
+     138.756558,
+     262.88037
+    ],
+    "most_relief_available_worst_season": 0.016167,
+    "both_ways_ok": true
+   }
+  ],
+  "chosen_built_in": 0.009,
+  "kappa0_per_in": 0.000342,
+  "arc_radius_in": 2924.560671,
+  "nut_lift_of_arc": 0.042074,
+  "rod_lb_per_turn_upper_bound": 1095.136402,
+  "relief_per_quarter_turn_upper_bound": 0.011552,
+  "rod_arm_below_neutral_axis": {
+   "at_anchor": 0.054881,
+   "max": 0.280883,
+   "at_joint": 0.110414
+  },
+  "rod_thread_stress_psi_at_250lb": 12500.0,
+  "anchor_bearing_psi_at_250lb": 1515.761363
+ },
+ "nut_head": {
+  "strings": [
+   {
+    "string": "E1",
+    "post_x": 1.85,
+    "hole_above_face": 0.227402,
+    "break_deg": 8.63216,
+    "downforce_lb": 2.473059,
+    "seat_margin": 20.489707,
+    "return_error_cents": 1.810165,
+    "tension_lb": 16.01439
+   },
+   {
+    "string": "B",
+    "post_x": 2.74626,
+    "hole_above_face": 0.227402,
+    "break_deg": 5.870069,
+    "downforce_lb": 1.579639,
+    "seat_margin": 13.933475,
+    "return_error_cents": 1.790448,
+    "tension_lb": 14.85692
+   },
+   {
+    "string": "G",
+    "post_x": 3.642519,
+    "hole_above_face": 0.227402,
+    "break_deg": 4.459758,
+    "downforce_lb": 1.213118,
+    "seat_margin": 10.585895,
+    "return_error_cents": 1.769121,
+    "tension_lb": 14.84186
+   },
+   {
+    "string": "D",
+    "post_x": 4.538779,
+    "hole_above_face": 0.168346,
+    "break_deg": 4.380091,
+    "downforce_lb": 1.317316,
+    "seat_margin": 10.396792,
+    "return_error_cents": 2.102278,
+    "tension_lb": 16.395347
+   },
+   {
+    "string": "A",
+    "post_x": 5.435038,
+    "hole_above_face": 0.168346,
+    "break_deg": 3.712444,
+    "downforce_lb": 1.19563,
+    "seat_margin": 8.812034,
+    "return_error_cents": 2.090049,
+    "tension_lb": 17.403028
+   },
+   {
+    "string": "E6",
+    "post_x": 6.331298,
+    "hole_above_face": 0.168346,
+    "break_deg": 3.24221,
+    "downforce_lb": 1.020478,
+    "seat_margin": 7.695864,
+    "return_error_cents": 2.083551,
+    "tension_lb": 16.867528
+   }
+  ],
+  "step_x": 0.89626,
+  "row_angle_deg": 17.057624,
+  "head": {
+   "area_in2": 14.26125,
+   "wood_kg": 0.088731,
+   "tuners_kg": 0.168,
+   "total_kg": 0.256731,
+   "com_in": [
+    -3.900205,
+    -0.323374,
+    -1.001384
+   ],
+   "com_m": [
+    -0.099065,
+    -0.008214,
+    -0.025435
+   ],
+   "inertia_about_nut_line_kgm2": 0.002921,
+   "tuner_points_in": [
+    [
+     -1.85,
+     -0.9875,
+     -1.15
+    ],
+    [
+     -2.74626,
+     -0.7125,
+     -1.15
+    ],
+    [
+     -3.642519,
+     -0.4375,
+     -1.15
+    ],
+    [
+     -4.538779,
+     -0.1625,
+     -1.15
+    ],
+    [
+     -5.435038,
+     0.1125,
+     -1.15
+    ],
+    [
+     -6.331298,
+     0.3875,
+     -1.15
+    ]
+   ],
+   "post_points_in": [
+    [
+     -1.85,
+     -0.6875
+    ],
+    [
+     -2.74626,
+     -0.4125
+    ],
+    [
+     -3.642519,
+     -0.1375
+    ],
+    [
+     -4.538779,
+     0.1375
+    ],
+    [
+     -5.435038,
+     0.4125
+    ],
+    [
+     -6.331298,
+     0.6875
+    ]
+   ]
+  },
+  "face_drop_options": [
+   {
+    "face_drop": 0.38,
+    "low_E_break_deg": 2.700696,
+    "return_error_cents_low_E": 1.75811
+   },
+   {
+    "face_drop": 0.44,
+    "low_E_break_deg": 3.24221,
+    "return_error_cents_low_E": 2.083551
+   },
+   {
+    "face_drop": 0.5,
+    "low_E_break_deg": 3.783144,
+    "return_error_cents_low_E": 2.408644
+   }
+  ],
+  "mu_options": [
+   {
+    "mu": 0.05,
+    "worst_return_error_cents": 0.525569
+   },
+   {
+    "mu": 0.1,
+    "worst_return_error_cents": 1.051139
+   },
+   {
+    "mu": 0.2,
+    "worst_return_error_cents": 2.102278
+   },
+   {
+    "mu": 0.3,
+    "worst_return_error_cents": 3.153417
+   }
+  ]
+ },
+ "derived": {
+  "board_surface_strain_if_bent_to_nut_radius": 0.009655,
+  "board_shrink_before_a_fret_end_stands_proud": {
+   "nut": 0.0176,
+   "fret_12": 0.014287
+  },
+  "relief_range_average_season": {
+   "rod_250lb": 0.006925,
+   "rod_40lb": 0.015785
+  },
+  "crown_length_is_width_minus": 0.0328,
+  "tang_length_is_width_minus": 0.16,
+  "tang_nip_from_crown_end": {
+   "treble": 0.06515,
+   "bass": 0.06205
+  },
+  "anchor_washer_radius": 0.25,
+  "wood_under_anchor": 0.186654,
+  "maple_over_anchor": 0.07,
+  "width_at_joint": 2.169012,
+  "depth_at_joint": 0.975571,
+  "board_end_x": 18.594304,
+  "frets": [
+   {
+    "fret": 1,
+    "x": 1.431205,
+    "board_width": 1.731429,
+    "crown_length": 1.698629,
+    "tang_length": 1.571429
+   },
+   {
+    "fret": 2,
+    "x": 2.782083,
+    "board_width": 1.772893,
+    "crown_length": 1.740093,
+    "tang_length": 1.612893
+   },
+   {
+    "fret": 3,
+    "x": 4.057141,
+    "board_width": 1.81203,
+    "crown_length": 1.77923,
+    "tang_length": 1.65203
+   },
+   {
+    "fret": 4,
+    "x": 5.260637,
+    "board_width": 1.84897,
+    "crown_length": 1.81617,
+    "tang_length": 1.68897
+   },
+   {
+    "fret": 5,
+    "x": 6.396585,
+    "board_width": 1.883837,
+    "crown_length": 1.851037,
+    "tang_length": 1.723837
+   },
+   {
+    "fret": 6,
+    "x": 7.468777,
+    "board_width": 1.916747,
+    "crown_length": 1.883947,
+    "tang_length": 1.756747
+   },
+   {
+    "fret": 7,
+    "x": 8.480792,
+    "board_width": 1.94781,
+    "crown_length": 1.91501,
+    "tang_length": 1.78781
+   },
+   {
+    "fret": 8,
+    "x": 9.436007,
+    "board_width": 1.977129,
+    "crown_length": 1.944329,
+    "tang_length": 1.817129
+   },
+   {
+    "fret": 9,
+    "x": 10.337609,
+    "board_width": 2.004803,
+    "crown_length": 1.972003,
+    "tang_length": 1.844803
+   },
+   {
+    "fret": 10,
+    "x": 11.188609,
+    "board_width": 2.030923,
+    "crown_length": 1.998123,
+    "tang_length": 1.870923
+   },
+   {
+    "fret": 11,
+    "x": 11.991846,
+    "board_width": 2.055578,
+    "crown_length": 2.022778,
+    "tang_length": 1.895578
+   },
+   {
+    "fret": 12,
+    "x": 12.75,
+    "board_width": 2.078849,
+    "crown_length": 2.046049,
+    "tang_length": 1.918849
+   },
+   {
+    "fret": 13,
+    "x": 13.465603,
+    "board_width": 2.100813,
+    "crown_length": 2.068013,
+    "tang_length": 1.940813
+   },
+   {
+    "fret": 14,
+    "x": 14.141041,
+    "board_width": 2.121545,
+    "crown_length": 2.088745,
+    "tang_length": 1.961545
+   },
+   {
+    "fret": 15,
+    "x": 14.778571,
+    "board_width": 2.141114,
+    "crown_length": 2.108314,
+    "tang_length": 1.981114
+   },
+   {
+    "fret": 16,
+    "x": 15.380318,
+    "board_width": 2.159584,
+    "crown_length": 2.126784,
+    "tang_length": 1.999584
+   },
+   {
+    "fret": 17,
+    "x": 15.948292,
+    "board_width": 2.177017,
+    "crown_length": 2.144217,
+    "tang_length": 2.017017
+   },
+   {
+    "fret": 18,
+    "x": 16.484389,
+    "board_width": 2.193472,
+    "crown_length": 2.160672,
+    "tang_length": 2.033472
+   },
+   {
+    "fret": 19,
+    "x": 16.990396,
+    "board_width": 2.209003,
+    "crown_length": 2.176203,
+    "tang_length": 2.049003
+   },
+   {
+    "fret": 20,
+    "x": 17.468003,
+    "board_width": 2.223663,
+    "crown_length": 2.190863,
+    "tang_length": 2.063663
+   },
+   {
+    "fret": 21,
+    "x": 17.918805,
+    "board_width": 2.2375,
+    "crown_length": 2.2047,
+    "tang_length": 2.0775
+   },
+   {
+    "fret": 22,
+    "x": 18.344304,
+    "board_width": 2.25056,
+    "crown_length": 2.21776,
+    "tang_length": 2.09056
+   }
+  ]
+ }
+}

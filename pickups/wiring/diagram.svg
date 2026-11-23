@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1210 700" width="1210" height="700" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1210" height="700" fill="#ffffff"/>
+  <style>
+    .w{stroke:#1d1d1f;stroke-width:2.2;fill:none}
+    .bus{stroke:#1d1d1f;stroke-width:3.2;fill:none}
+    .sw{stroke:#c2410c;stroke-width:2.4;fill:none}
+    .pz{stroke:#0f766e;stroke-width:2.4;fill:none}
+    .t{font-size:14px;fill:#1d1d1f}
+    .s{font-size:12px;fill:#55565a}
+    .b{font-size:15px;font-weight:700;fill:#1d1d1f}
+    .o{font-size:13px;font-weight:700;fill:#c2410c}
+    .g{font-size:13px;font-weight:700;fill:#0f766e}
+    .h{font-size:20px;font-weight:700;fill:#1d1d1f}
+    .th{font-size:12px;font-weight:700;fill:#1d1d1f}
+    .td{font-size:12px;fill:#1d1d1f}
+    .dot{fill:#1d1d1f}
+  </style>
+
+  <text x="30" y="38" class="h">Supercaster control circuit</text>
+  <text x="30" y="58" class="s">5-way superswitch (4P5T) + SERIES (DPDT), PHASE (4PDT), PIEZO (on-off-on) minis + Volume, Tone, Piezo knobs. Black = signal, orange = series toggle, teal = piezo.</text>
+
+  <!-- OUT bus -->
+  <line x1="70" y1="100" x2="700" y2="100" class="bus"/>
+  <text x="70" y="90" class="b">OUT bus</text>
+  <!-- volume / jack -->
+  <rect x="700" y="85" width="78" height="30" rx="4" class="w"/>
+  <text x="711" y="105" class="t">VOL 250k</text>
+  <line x1="778" y1="100" x2="800" y2="100" class="w"/>
+  <text x="736" y="132" class="t">to jack</text>
+  <!-- tone -->
+  <line x1="470" y1="100" x2="470" y2="140" class="w"/><circle cx="470" cy="100" r="4" class="dot"/>
+  <rect x="440" y="140" width="60" height="26" rx="4" class="w"/>
+  <text x="451" y="158" class="s">TONE</text>
+  <text x="507" y="152" class="s">250k + 22nF</text>
+  <text x="507" y="166" class="s">to ground</text>
+
+  <!-- slot X -->
+  <line x1="130" y1="100" x2="130" y2="140" class="w"/><circle cx="130" cy="100" r="4" class="dot"/>
+  <path d="M130 140 c18 0 18 14 0 14 c18 0 18 14 0 14 c18 0 18 14 0 14 c18 0 18 14 0 14" class="w"/>
+  <line x1="130" y1="196" x2="130" y2="260" class="w"/>
+  <text x="152" y="164" class="b">slot X</text>
+  <text x="152" y="182" class="s">pole 1 = its hot</text>
+  <text x="152" y="196" class="s">pole 2 = its return</text>
+  <circle cx="130" cy="260" r="4" class="dot"/>
+  <text x="84" y="265" class="t">XC</text>
+
+  <!-- slot Y -->
+  <circle cx="360" cy="200" r="4" class="dot"/>
+  <text x="372" y="196" class="t">YH</text>
+  <line x1="360" y1="200" x2="360" y2="250" class="w"/>
+  <path d="M360 250 c18 0 18 14 0 14 c18 0 18 14 0 14 c18 0 18 14 0 14 c18 0 18 14 0 14" class="w"/>
+  <line x1="360" y1="306" x2="360" y2="420" class="w"/>
+  <text x="382" y="274" class="b">slot Y</text>
+  <text x="382" y="292" class="s">pole 3 = its hot</text>
+  <text x="382" y="306" class="s">pole 4 = its return</text>
+
+  <!-- series toggle pole a: YH -> OUT (P) or XC (S) -->
+  <line x1="360" y1="200" x2="300" y2="150" class="sw"/>
+  <circle cx="300" cy="145" r="4" fill="#c2410c"/>
+  <line x1="300" y1="145" x2="300" y2="100" class="sw"/>
+  <text x="262" y="140" class="o">P</text>
+  <circle cx="290" cy="215" r="4" fill="#c2410c"/>
+  <line x1="290" y1="215" x2="130" y2="260" class="sw" stroke-dasharray="7 5"/>
+  <text x="270" y="236" class="o">S</text>
+  <!-- series toggle pole b: XC -> PR (P) -->
+  <line x1="130" y1="260" x2="130" y2="300" class="w"/>
+  <line x1="130" y1="300" x2="150" y2="341" class="sw"/>
+  <circle cx="150" cy="345" r="4" fill="#c2410c"/>
+  <line x1="150" y1="345" x2="150" y2="420" class="sw"/>
+  <circle cx="108" cy="345" r="4" fill="none" stroke="#c2410c" stroke-width="2"/>
+  <text x="160" y="370" class="o">P</text>
+  <text x="80" y="370" class="o">S</text>
+  <text x="70" y="386" class="s">(no lug)</text>
+  <rect x="190" y="300" width="150" height="58" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="1.5"/>
+  <text x="200" y="320" class="o">SERIES toggle (DPDT)</text>
+  <text x="200" y="337" class="s">P: X and Y in parallel</text>
+  <text x="200" y="351" class="s">S: X return feeds Y hot</text>
+
+  <!-- PR bus -->
+  <line x1="70" y1="420" x2="620" y2="420" class="bus"/>
+  <text x="70" y="410" class="b">PR</text>
+  <text x="372" y="410" class="s">pickup return: every pickup's cold end (not ground)</text>
+  <circle cx="150" cy="420" r="4" class="dot"/><circle cx="360" cy="420" r="4" class="dot"/>
+
+  <!-- piezo network -->
+  <line x1="170" y1="420" x2="170" y2="470" class="pz"/>
+  <line x1="150" y1="470" x2="190" y2="470" class="pz"/>
+  <line x1="150" y1="480" x2="190" y2="480" class="pz"/>
+  <line x1="170" y1="480" x2="170" y2="540" class="pz"/>
+  <text x="196" y="470" class="g">piezo disc</text>
+  <text x="196" y="486" class="s">silver to PR</text>
+  <text x="196" y="500" class="s">brass to GND</text>
+  <line x1="330" y1="420" x2="330" y2="450" class="pz"/>
+  <path d="M330 450 l10 6 l-20 12 l20 12 l-20 12 l20 12 l-10 6" class="pz"/>
+  <line x1="330" y1="510" x2="330" y2="540" class="pz"/>
+  <line x1="302" y1="508" x2="360" y2="455" class="pz"/>
+  <path d="M360 455 l-11 2 l6 6 z" fill="#0f766e"/>
+  <text x="370" y="470" class="g">PIEZO knob</text>
+  <text x="370" y="486" class="s">1M audio taper,</text>
+  <text x="370" y="500" class="s">wiper + 1 end. 0 = silent</text>
+  <!-- piezo toggle -->
+  <line x1="580" y1="420" x2="580" y2="450" class="pz"/>
+  <circle cx="580" cy="420" r="4" class="dot"/>
+  <line x1="580" y1="450" x2="606" y2="476" class="pz"/>
+  <circle cx="580" cy="500" r="4" fill="#0f766e"/>
+  <line x1="580" y1="500" x2="580" y2="540" class="pz"/>
+  <text x="552" y="514" class="g">up</text>
+  <circle cx="650" cy="440" r="4" fill="#0f766e"/>
+  <line x1="650" y1="436" x2="650" y2="100" class="pz" stroke-dasharray="7 5"/>
+  <circle cx="650" cy="100" r="4" class="dot"/>
+  <text x="658" y="456" class="g">down</text>
+  <text x="610" y="500" class="s">centre</text>
+  <rect x="460" y="560" width="190" height="72" rx="6" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="470" y="580" class="g">PIEZO toggle (on-off-on)</text>
+  <text x="470" y="597" class="s">up: PR to ground = electric</text>
+  <text x="470" y="611" class="s">centre: open = blend</text>
+  <text x="470" y="625" class="s">down: OUT to PR = acoustic only</text>
+
+  <!-- GND -->
+  <line x1="70" y1="540" x2="620" y2="540" class="bus"/>
+  <text x="70" y="562" class="b">GND</text>
+  <text x="108" y="562" class="s">true ground: vol lug 1, tone cap, jack sleeve,</text>
+  <text x="108" y="576" class="s">bridge, shielding, humbucker cover and bare wire</text>
+
+  <!-- phase inset -->
+  <rect x="30" y="596" width="350" height="88" rx="6" fill="#f5f5f7" stroke="#8e8e93" stroke-width="1.2"/>
+  <text x="42" y="617" class="b">PHASE toggle (4PDT)</text>
+  <text x="42" y="635" class="s">Poles 1-2: crossover on the neck's leads, flips the neck (3, 4).</text>
+  <text x="42" y="651" class="s">Poles 3-4: pick position 3's bridge coil via 5-way pos-3 lugs:</text>
+  <text x="42" y="667" class="s">normal = coil B (BJ hot, B- return), flip = coil A (A+, BJ).</text>
+  <text x="42" y="681" class="s">So 3 humbucks either way. Neither humbucker coil is flipped.</text>
+
+  <!-- right panel: tone chart -->
+  <text x="840" y="100" class="h">Tone map</text>
+  <g transform="translate(840,112)">
+    <rect x="0" y="0" width="360" height="26" fill="#1d1d1f"/>
+    <text x="8" y="17" font-size="12" font-weight="700" fill="#fff">5-way</text>
+    <text x="52" y="17" font-size="12" font-weight="700" fill="#fff">slot X / slot Y</text>
+    <text x="178" y="17" font-size="12" font-weight="700" fill="#fff">+SERIES</text>
+    <text x="262" y="17" font-size="12" font-weight="700" fill="#fff">+PHASE</text>
+
+    <rect x="0" y="26" width="360" height="40" fill="#f5f5f7"/>
+    <text x="8" y="44" class="th">1</text><text x="52" y="44" class="td">Bridge HB, A+B</text>
+    <text x="52" y="59" class="s">full humbucker</text>
+    <text x="178" y="44" class="s">no change</text><text x="262" y="44" class="s">no change</text>
+
+    <text x="8" y="84" class="th">2</text><text x="52" y="84" class="td">Coil A / Middle</text>
+    <text x="52" y="99" class="s">auto split, Strat 2</text>
+    <text x="178" y="84" class="td">A + M series</text><text x="262" y="84" class="s">no change</text>
+
+    <rect x="0" y="106" width="360" height="40" fill="#f5f5f7"/>
+    <text x="8" y="124" class="th">3</text><text x="52" y="124" class="td">Coil B / Neck</text>
+    <text x="52" y="139" class="s">auto split, Tele middle</text>
+    <text x="178" y="124" class="td">Tele series</text><text x="262" y="124" class="td">coil A, out</text>
+    <text x="262" y="139" class="s">of phase</text>
+
+    <text x="8" y="164" class="th">4</text><text x="52" y="164" class="td">Neck / Middle</text>
+    <text x="52" y="179" class="s">Strat 4</text>
+    <text x="178" y="164" class="td">N + M series</text><text x="262" y="164" class="td">out of phase</text>
+
+    <rect x="0" y="186" width="360" height="40" fill="#f5f5f7"/>
+    <text x="8" y="204" class="th">5</text><text x="52" y="204" class="td">Neck</text>
+    <text x="52" y="219" class="s">alone</text>
+    <text x="178" y="204" class="s">no change</text><text x="262" y="204" class="s">neck vs piezo</text>
+
+    <text x="0" y="252" class="s">SERIES and PHASE combine: 3 and 4 each give parallel,</text>
+    <text x="0" y="267" class="s">series, out of phase, and series out of phase.</text>
+    <text x="0" y="282" class="s">12 electric voices. Every one takes the piezo: off,</text>
+    <text x="0" y="297" class="s">blended by the Piezo knob, or acoustic only.</text>
+
+    <text x="0" y="330" class="b">Hum (N/M normal RWRP pair)</text>
+    <text x="0" y="349" class="s">Quiet: 1, 2, 3 in every combination, 4 in phase.</text>
+    <text x="0" y="364" class="s">Single-coil hum: 5, and 4 out of phase.</text>
+    <text x="0" y="379" class="s">The humbucker has a coil of each polarity, so the</text>
+    <text x="0" y="394" class="s">switching always picks the one that cancels.</text>
+
+    <text x="0" y="428" class="b">Piezo knob (1M audio taper)</text>
+    <text x="0" y="447" class="s">0 to 15%: piezo fades in, thin.</text>
+    <text x="0" y="462" class="s">15 to 35%: full mids and highs.</text>
+    <text x="0" y="477" class="s">35 to 100%: adds body and low end.</text>
+    <text x="0" y="514" class="s">Cost: in blend the piezo takes on the pickups' treble</text>
+    <text x="0" y="529" class="s">roll-off. Acoustic only (PIEZO down) stays flat.</text>
+  </g>
+</svg>

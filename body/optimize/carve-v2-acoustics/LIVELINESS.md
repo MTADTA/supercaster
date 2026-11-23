@@ -1,0 +1,43 @@
+# Supercaster • voicing the chamber, plates and f-hole
+
+> **2026-11-18:** this study used the 1.75 in V1 body. For the Mock-up V3 build (2.0 in, maple layer) use [V3-LIVELINESS.md](../v3-acoustics/V3-LIVELINESS.md): open 6/6 is +1.61 dB there, the 6 mm back margin depends on the chamber wall fillet, and the glued liner is not removable. This study's insert row was not rebuilt at its trimmed 16.02 mm depth.
+
+**Prototype the V1 Vintage dome with a 6 mm finished bare alder roof and start with the traced f-hole open.** For maximum modeled broadband projection, the 6 mm back is the leading test piece. Keep a 7 mm back as the control and as the build choice if the thinner back fails the stock and load checks. Make the tuned throat removable so Jordan can compare both voices on the same instrument. Keep the solid bridge and pivot support, narrow roof fillet and local reinforcement at the f-hole ends from the [construction review](../ENGINEERING-STATUS-2026-11-15.md). Seat the guard as intended, since an unknown guard contact can overwhelm small plate differences.
+
+## What changed the decision
+
+The previous study held all carves near 294 Hz. That is a good comparison of body shapes, but it excluded the open f-hole as a voicing option. Here the objective is broad unplugged radiation, balanced with player-contact vibration and string decay. The table reports differences from V1 with 6 mm top, 7 mm back and a 19.05 mm nominal-depth compliant liner tuned to 294 Hz. It uses equal saddle forces and frequency bins. The matched reference mean radiated power is about 2.62 μW/N² from 80–1000 Hz.
+
+| V1 case | Air mode | Broadband power | 200–300 Hz power | Forearm velocity | Neck-back velocity | Lower-decile body-loss decay |
+|---|---:|---:|---:|---:|---:|---:|
+| 6/7 mm tuned reference | 294 Hz | 0 dB | 0 dB | 0 dB | 0 dB | 8.07 s |
+| 6/7 mm, open | 389 Hz | +1.19 dB | −5.98 dB | +0.32 dB | −0.10 dB | 8.06 s |
+| 6/6 mm, tuned | 294 Hz | +0.52 dB | +1.35 dB | −0.07 dB | −0.96 dB | 7.21 s |
+| **6/6 mm, open** | **385 Hz** | **+2.09 dB** | **−5.50 dB** | **+0.30 dB** | **−0.62 dB** | **7.71 s** |
+| 6/8 mm, tuned | 294 Hz | −0.14 dB | −1.03 dB | −0.01 dB | +0.24 dB | 8.38 s |
+| 7/7 mm, tuned | 294 Hz | −0.18 dB | −0.83 dB | −0.14 dB | +0.21 dB | 8.24 s |
+
+Top/back dimensions are nominal model parameters. The 6/6 open result is about 62% more mean acoustic power per unit force. The modeled output shifts upward. Its dominant air resonance moves up and the 500–1000 Hz band gains 2.37 dB. The neck vibration proxy falls slightly. The 6/6 tuned body is worth playing alongside it if warmth and lower mids drive the preference. The two voices reward different definitions of lively.
+
+Across 78 string/fret fundamentals in each of E♭ standard and drop C♯ (six strings, open through fret 12), the 6/6 open case increased simulated power at 68 positions, with a median paired increase of 0.49 dB in either tuning. Giving each octave equal weight gives +2.00 dB overall. Scaling the assumed wood loss from 0.5× to 1.5× gives +2.13 to +2.06 dB with equal-Hz weighting. These are transfer responses to a saddle force. Actual plucks weight harmonics differently and can produce smaller changes. The decay metric includes energy lost into the moving instrument only. The 6/6 open and reference worst body-loss-only estimates are 2.04 and 1.97 seconds respectively. Absolute pickup sustain also depends on the string, fret contact and setup.
+
+## What the physics includes
+
+- **Chamber and plates.** The held-instrument model couples an orthotropic structural mesh of the body, mobile top and back, neck, trem and guard to a three-dimensional finite-volume air network. Moving roof and floor change chamber pressure. The corrected back-thickness calculation raises the interior floor when the back thickens in both models. Before correction, changing that parameter moved the floor in the opposite direction. The 7 mm reference geometry is identical. Net simulated air volume is 49.16 in³ (0.806 L) for 6/6 open and 45.47 in³ (0.745 L) for the lined reference.
+- **F-hole and port.** The visible traced opening is 3.257 in². The raster supplies opening area, outline and perimeter. The aperture conductance calculation includes the external end correction. The hidden throat has its own area, depth, wall losses and pocket geometry. A boundary-element radiation model combines exterior surface vibration with port flow, including their relative phase. The detailed local exterior velocity over the aperture is approximated. Independent experiments on f-shaped apertures support accounting for outline and wall motion in addition to opening area. [Nia et al., Proceedings of the Royal Society A](https://pmc.ncbi.nlm.nih.gov/articles/PMC4353046/)
+- **Scope.** Four earlier matched body carves and the new V1 variants constrain the design choice. With V1 alone we compared nominal top/back thickness, 279/294/312 Hz trims, 14/19.05 mm liner depth, an unlined opening, and cutter-accessible hidden pockets. There is no full factorial search over exterior outlines, chamber plans, plate thickness and materials. The analysis covers 80–1000 Hz, with tactile RMS velocity at forearm, belly and neck over 80–400 Hz. The legacy neck, guard seating, wood damping, simplified hole reinforcement, common radiation mesh and absence of a live amplifier loop limit absolute predictions. The fretboard revision is a separate hand-feel study.
+- **Back strength.** A clamped orthotropic shallow-shell screen used the V1 chamber footprint and back surfaces, with a 50 N static load distributed over a 1-inch-square patch scanned on an 8 mm grid. Peak cross-grain tension for the 6 mm back was 0.83/0.87 MPa on .100/.075-inch grids. The 7 mm back gave 0.65/0.69 MPa. Maximum predicted deflection at the finer grid was 0.114 vs 0.074 mm. The 6 mm result is close to the project’s weak-stock estimate of 0.891 MPa. Mesh resolution, local runout, humidity, impact and rim compliance matter. Treat 6 mm as a prototype dimension. On this stock assumption the 7 mm back offers more margin. The independent roof-strength check and real blank qualification still apply.
+
+## Removable insert for the darker voice
+
+For the 6/6 body, the successful starting geometry is a **2.00 mm inset**, a **single 1.832 in² throat** generated by sweeping a **3.175 mm diameter cutter**, and **16.02 mm nominal liner depth**. The air network caps local liner penetration at 80% of the available cavity depth. The coupled air mode reached 294.00 Hz; the rigid-wall calculation for the same pocket was 303.94 Hz. The 6.35 mm diameter cutter at 19.05 mm depth in the earlier 6/7 trial closed a narrow passage and missed the target at 272.45 Hz. Cutter access changes the air path enough to matter.
+
+Hold the successful pocket outline fixed and trim length on the dry-clamped instrument. The structural mode cache for the insert comparison used the nearby 14 mm depth and 2.2 mm inset. Air geometry was retuned with those structural modes held fixed. The nominal depth is a starting value for a conforming, airtight, removable insert. Check floor clearance and liner mass on the actual dome.
+
+## Bench decision
+
+Measure the actual batch for thickness, grain runout, moisture and transverse stiffness. Proof-load representative curved plate samples with the modeled patch, inspecting for residual set and cracks, and record knock spectra. Measure top/back minimums after sanding, including the belly contour. Dry-clamp the same body and hardware around the selected back. Compare the open f-hole and removable lined insert with a fixed-force bridge tap and repeated plucks, same action, pick point, strings and grip. Record a fixed microphone, contact accelerometer and clean pickup channel separately. Compare the band spectrum, note-by-note decay, and the first feedback note and gain in the same amp/room position. Keep the configuration that wins masked playing comparisons without an objectionable short note or early howl. Only this assembled test can establish the liveliest voice for Jordan.
+
+[Base runs](results/liveliness.json) · [Open 6/6 and deep rounded throat](results/liveliness_followup.json) · [Note, loss and insert checks](results/voice_check.json) · [Back plate screen](results/back_check.json) · [Band and contact chart](liveliness.png) · [Symmetric scallop](../../../neck/v4/transition/PROTOTYPE.md)
+
+From the repository root, use `body/sim/cache/venv/bin/python -I -B` to run `liveliness.py`, `liveliness.py --followup`, `voice_check.py`, `back_check.py` and `liveliness_figure.py` under `body/optimize/carve-v2-acoustics/`. Structural mode caches are keyed by the case name. Use new cache names after changing structural inputs or solver geometry.

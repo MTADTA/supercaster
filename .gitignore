@@ -1,0 +1,21 @@
+# environments, caches, bytecode
+.venv/
+venv/
+__pycache__/
+*.pyc
+cache/
+.DS_Store
+
+# result dumps and generated binaries (regenerate with the scripts)
+*.npz
+*.npy
+*.log
+*.stl
+*.wav
+
+# plan data and third-party material that must not be published
+body/plan.json
+body/reference/
+body/sources-trem/
+*.pdf
+*.hdr

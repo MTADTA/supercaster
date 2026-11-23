@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supercaster II — Neck CAD</title>
+<style>
+  :root { --ink: var(--foreground, #eae6df); --dim: var(--muted-foreground, #9a948a); --line: var(--border, #2c2a27); --acc: #e7c27d; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 0; color: var(--ink); background: var(--background, #0f0e0d); font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); }
+  .wrap { display: grid; gap: 14px; }
+  h1 { font-size: 20px; margin: 0; letter-spacing: .02em; }
+  .sub { color: var(--dim); font-size: 13px; margin-top: 2px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font: 12px var(--font-mono, ui-monospace, monospace); padding: 3px 8px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); }
+  .stage { position: relative; height: 460px; border-radius: var(--radius, 10px); overflow: hidden; background: radial-gradient(120% 90% at 30% 20%, #2a2622 0%, #121110 70%); }
+  .stage canvas { display: block; width: 100%; height: 100%; }
+  .views { position: absolute; left: 12px; top: 12px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .views button, .btn { font: 12px var(--font-sans, system-ui); color: #eee; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.18); border-radius: 6px; padding: 5px 9px; cursor: pointer; }
+  .views button.on { border-color: var(--acc); color: var(--acc); }
+  .note { position: absolute; right: 12px; bottom: 10px; font: 11px var(--font-mono, monospace); color: #bdb5a8; text-align: right; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
+  .panel { border: 1px solid var(--line); border-radius: var(--radius, 10px); padding: 16px; }
+  .panel h2 { font-size: 13px; margin: 0 0 8px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); }
+  label { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; font-size: 12px; margin-bottom: 8px; }
+  label input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--acc); }
+  label output { font-family: var(--font-mono, monospace); color: var(--acc); }
+  select { font-size: 12px; background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 2px 4px; }
+  table { width: 100%; border-collapse: collapse; font: 12px var(--font-mono, monospace); }
+  th, td { text-align: right; padding: 4px 6px; border-bottom: 1px solid var(--line); }
+  th:first-child, td:first-child { text-align: left; }
+  th { color: var(--dim); font-weight: 500; }
+  td.rec { color: var(--acc); }
+  svg text { font-family: var(--font-mono, ui-monospace, monospace); }
+  p.small { font-size: 12px; color: var(--dim); line-height: 1.5; margin: 6px 0 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div>
+    <h1>Supercaster II, set-neck spec v0.2</h1>
+    <div class="sub">Parametric neck model. Every number below comes from one parameter set.</div>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="stage" id="stage">
+    <div class="views" id="views"></div>
+    <div class="note" id="note">drag to orbit · scroll to zoom</div>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <h2>Cross-sections (true scale, overlaid)</h2>
+      <svg id="sec" viewBox="0 0 340 220" width="100%"></svg>
+      <p class="small">Fret 1, 12 and 21 sections drawn over each other. The deepest point sits toward the bass side, with a full bass shoulder for the thumb and a trimmed treble shoulder for the fingers.</p>
+    </div>
+    <div class="panel">
+      <h2>Can the fret blend into the scallop? (true scale)</h2>
+      <svg id="fret" viewBox="0 0 340 250" width="100%"></svg>
+      <p class="small">The circle is a fingertip pad (radius .30") rolling toward the fret. A stock 6230 meets the board vertically, so a finger can't reach the corner at its base. It bridges the corner and tips onto the crown, which is the click you feel. The wave fret's concave flanks are larger than the fingertip, so the finger rides the whole curve and its path never kinks. That's the one tested rule: every concave surface is larger than a fingertip, and only the crest the string touches is small. The rigid-finger model is a proxy, and pad radius is an assumption.</p>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <h2>Parameters</h2>
+      <div id="controls"></div>
+      <button class="btn" id="stl" style="margin-top:6px">Export STL</button>
+    </div>
+    <div class="panel">
+      <h2>Taper: three rules compared</h2>
+      <table id="tbl"></table>
+      <p class="small"><b style="color:var(--acc)">Radius-locked (recommended):</b> depth grows in the same ratio as the fingerboard radius. Both come from one cone whose apex sits about 82" ahead of the nut, so every cross-section is the same family of shapes. It lands at .82" → .93" at the 12th, inside vintage range. The width-proportional rule gets too chunky (≈.99"), and a straight linear taper is the usual factory default.</p>
+    </div>
+  </div>
+</div>
+
+<script>/*NECKGEO*/</script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/" } }</script>
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { STLExporter } from "three/addons/exporters/STLExporter.js";
+
+const N = window.NeckGeo;
+const P = Object.assign({}, N.DEFAULTS);
+
+// ---------- 3D ----------
+const stage = document.getElementById("stage");
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(1.5, devicePixelRatio));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+stage.prepend(renderer.domElement);
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+const camera = new THREE.PerspectiveCamera(30, 1, 0.05, 200);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+let dirty = true;
+controls.addEventListener("change", () => { dirty = true; });
+const key = new THREE.DirectionalLight(0xfff1dd, 2.2); key.position.set(-6, 10, 8); scene.add(key);
+const rim = new THREE.DirectionalLight(0xbcd2ff, 1.0); rim.position.set(10, 3, -8); scene.add(rim);
+
+function grainTexture(base, dark, streaks, w = 1024, h = 256) {
+  const c = document.createElement("canvas"); c.width = w; c.height = h;
+  const g = c.getContext("2d"); g.fillStyle = base; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < streaks; i++) {
+    const y = Math.random() * h, a = Math.random() * 0.18;
+    g.strokeStyle = dark.replace("A", a.toFixed(3)); g.lineWidth = 0.5 + Math.random() * 2.2;
+    g.beginPath(); g.moveTo(0, y);
+    for (let x = 0; x <= w; x += 32) g.lineTo(x, y + Math.sin(x * 0.004 + i) * 3);
+    g.stroke();
+  }
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; return t;
+}
+const mats = {
+  board: new THREE.MeshPhysicalMaterial({ map: grainTexture("#3b2419", "rgba(10,4,2,A)", 260), roughness: 0.62, clearcoat: 0.1, side: THREE.DoubleSide }),
+  neck: new THREE.MeshPhysicalMaterial({ map: N.flameMaple(THREE), roughness: 0.32, clearcoat: 0.7, clearcoatRoughness: 0.25, side: THREE.DoubleSide }),
+  fret: new THREE.MeshStandardMaterial({ color: 0xe6e3dc, metalness: 1, roughness: 0.18 }),
+  metal: new THREE.MeshStandardMaterial({ color: 0xd8d8d8, metalness: 1, roughness: 0.22 }),
+  dot: new THREE.MeshStandardMaterial({ color: 0xe9dfc6, roughness: 0.5 }),
+  nut: new THREE.MeshStandardMaterial({ color: 0xf2ebd9, roughness: 0.4 }),
+  string: new THREE.LineBasicMaterial({ color: 0xcfcfcf, transparent: true, opacity: 0.75 }),
+};
+let model;
+function rebuild() {
+  if (model) { scene.remove(model); model.traverse((o) => o.geometry && o.geometry.dispose()); }
+  model = N.buildNeck(THREE, P, mats);
+  model.position.x = -9; scene.add(model);
+  drawSections(); drawFret(); drawTable(); drawChips();
+  dirty = true;
+}
+const VIEWS = {
+  "Hero": [[-14, 9, 16], [-2, -0.3, 0]],
+  "Thumb side": [[3, -1.6, -13], [3, -0.4, 0]],
+  "Back carve": [[-4, -3.4, -5.2], [0.5, -0.45, 0]],
+  "Wave frets": [[-2.4, 0.5, 2.1], [-0.4, -0.05, 0.3]],
+  "Fret ends": [[0.6, 0.55, 2.7], [-0.4, -0.1, 0.95]],
+  "Heel": [[15, -2.5, 7], [8, -0.6, 0]],
+};
+const vbar = document.getElementById("views");
+Object.keys(VIEWS).forEach((k, i) => {
+  const b = document.createElement("button"); b.textContent = k; if (!i) b.className = "on";
+  b.onclick = () => { setView(k); vbar.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b)); };
+  vbar.appendChild(b);
+});
+function setView(k) { const [c, t] = VIEWS[k]; camera.position.set(...c); controls.target.set(...t); controls.update(); dirty = true; }
+window.setView = setView;
+function resize() { const r = stage.getBoundingClientRect(); renderer.setSize(r.width, r.height, false); camera.aspect = r.width / r.height; camera.updateProjectionMatrix(); dirty = true; }
+new ResizeObserver(resize).observe(stage); resize();
+setView("Hero");
+renderer.setAnimationLoop(() => { controls.update(); if (dirty) { renderer.render(scene, camera); dirty = false; } });
+
+// ---------- controls ----------
+const CTRL = [
+  ["radiusNut", "Radius at nut (in)", 6, 10, 0.25],
+  ["radiusBridge", "Radius target at bridge (in)", 7.25, 16, 0.25],
+  ["radiusMode", "Where the bridge radius lands", ["saddle", "lastFret"]],
+  ["depth1", "Depth at 1st fret (in)", 0.74, 0.95, 0.005],
+  ["taperMode", "Taper rule", ["radius", "width", "linear"]],
+  ["apexOffset", "Asymmetry: apex shift to bass", -0.2, 0.25, 0.01],
+  ["bassP", "Bass shoulder fullness", 1.4, 3.5, 0.05],
+  ["trebleP", "Treble shoulder fullness", 1.4, 3.5, 0.05],
+  ["fretProfile", "Fret profile", ["wave", "stock"]],
+  ["waveRho", "Wave flank radius (in), keep > fingertip", 0.25, 0.6, 0.01],
+  ["waveDepth", "Wave valley depth below board (in)", 0.005, 0.04, 0.001],
+  ["scallop1", "Stock: scallop depth, low frets (in)", 0, 0.04, 0.001],
+  ["scallop12", "Stock: scallop depth, 12th up (in)", 0, 0.05, 0.001],
+  ["fretEnd", "Fret end", ["semi", "hemi"]],
+  ["scallopShow", "Visual exaggeration of scallop", 1, 8, 1],
+];
+const host = document.getElementById("controls");
+CTRL.forEach(([k, lab, a, b, s]) => {
+  const L = document.createElement("label");
+  if (Array.isArray(a)) {
+    L.innerHTML = `<span>${lab}</span><select>${a.map((o) => `<option ${o === P[k] ? "selected" : ""}>${o}</option>`).join("")}</select>`;
+    L.querySelector("select").onchange = (e) => { P[k] = e.target.value; rebuild(); };
+  } else {
+    L.innerHTML = `<span>${lab}</span><output>${P[k]}</output><input type="range" min="${a}" max="${b}" step="${s}" value="${P[k]}">`;
+    const o = L.querySelector("output");
+    L.querySelector("input").oninput = (e) => { P[k] = +e.target.value; o.textContent = P[k]; rebuild(); };
+  }
+  host.appendChild(L);
+});
+document.getElementById("stl").onclick = () => {
+  const data = new STLExporter().parse(model, { binary: true });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([data], { type: "model/stl" }));
+  a.download = "supercaster-ii-neck.stl"; a.click();
+};
+
+// ---------- drawings ----------
+const f3 = (v) => v.toFixed(3).replace(/^0/, "");
+function poly(pts, sx, sy, ox, oy) { return pts.map(([y, z]) => `${(ox - y * sx).toFixed(1)},${(oy - z * sy).toFixed(1)}`).join(" "); }
+function drawSections() {
+  const S = 105, ox = 170, oy = 34, svg = document.getElementById("sec");
+  const cols = ["#7fb0ff", "#e7c27d", "#ff8f70"];
+  let h = `<line x1="${ox}" y1="20" x2="${ox}" y2="200" stroke="#555" stroke-dasharray="3 3"/>`;
+  h += `<text x="14" y="16" font-size="9" fill="#999">BASS ◀</text><text x="290" y="16" font-size="9" fill="#999">▶ TREBLE</text>`;
+  [1, 12, P.frets].forEach((n, i) => {
+    const x = N.fretX(P, n), Q = Object.assign({}, P, { scallopShow: 0, heelStartFret: 99 });
+    h += `<polygon points="${poly(N.neckSection(Q, x), S, S, ox, oy)}" fill="none" stroke="${cols[i]}" stroke-width="1.3"/>`;
+    h += `<polygon points="${poly(N.boardSection(Q, x), S, S, ox, oy)}" fill="${cols[i]}" fill-opacity=".12" stroke="${cols[i]}" stroke-width="1"/>`;
+    h += `<text x="12" y="${168 + i * 15}" font-size="10" fill="${cols[i]}">fret ${n}: W ${f3(N.width(P, x))}  D ${f3(N.depth(P, x))}  R ${N.radius(P, x).toFixed(2)}"</text>`;
+  });
+  svg.innerHTML = h;
+}
+function drawFret() {
+  const svg = document.getElementById("fret"), K = 430, R = 0.3, L = 1.0, x0 = -0.14, x1 = 0.6, ox = 20 - x0 * K;
+  const rows = [["stock", "Dunlop 6230 + micro scallop", "#ff8f70"], ["wave", "Wave fret, 6230 crest", "#7fe0a8"]];
+  let h = "";
+  rows.forEach(([mode, label, col], i) => {
+    const q = Object.assign({}, P, { fretProfile: mode, scallopShow: 1 });
+    const f = N.spanProfile(q, L), fm = (x) => f(Math.abs(x));
+    const oy = 92 + i * 118, X = (x) => (ox + x * K).toFixed(1), Y = (z) => (oy - z * K).toFixed(1);
+    const res = N.fingerFeel(f, R, L), g2 = N.fingerFeel(f, 0.2, L);
+    const surf = []; for (let x = x0; x <= x1 + 1e-9; x += 0.002) surf.push(`${X(x)},${Y(fm(x))}`);
+    const { ring } = N.fretRing(q);
+    const metal = ring.map(([t, z]) => `${X(t)},${Y(z)}`).join(" ");
+    const path = res.path.filter(([x]) => x <= x1).map(([x, z]) => `${X(x)},${Y(z - R)}`).join(" ");
+    const at = res.path.reduce((b, pt) => (Math.abs(pt[0] - res.at) < Math.abs(b[0] - res.at) ? pt : b));
+    h += `<clipPath id="row${i}"><rect x="0" y="${oy - 80}" width="340" height="112"/></clipPath>`;
+    h += `<g clip-path="url(#row${i})">`;
+    h += `<polygon points="${surf.join(" ")} ${X(x1)},${oy + 30} ${X(x0)},${oy + 30}" fill="#3b2419"/>`;
+    h += `<polygon points="${metal}" fill="#d9d6cf"/>`;
+    h += `<circle cx="${X(at[0])}" cy="${Y(at[1])}" r="${R * K}" fill="${col}" fill-opacity=".10" stroke="${col}" stroke-width="1"/>`;
+    h += `<polyline points="${path}" fill="none" stroke="${col}" stroke-width="1.4" stroke-dasharray="3 2"/>`;
+    h += `</g>`;
+    h += `<text x="8" y="${oy - 66}" font-size="10" fill="${col}">${label}</text>`;
+    h += `<text x="8" y="${oy - 53}" font-size="10" fill="var(--ink)">catch ${res.catchDeg.toFixed(1)}° (R .30) · ${g2.catchDeg.toFixed(1)}° (R .20) · rise ${f3(res.rise)}"</text>`;
+  });
+  svg.innerHTML = h;
+}
+function drawTable() {
+  const rows = N.stations(P);
+  document.getElementById("tbl").innerHTML = `<tr><th>fret</th><th>width</th><th>radius</th><th>radius-locked</th><th>∝ width</th><th>linear</th></tr>` +
+    rows.map((r) => `<tr><td>${r.fret}</td><td>${f3(r.width)}</td><td>${r.radius.toFixed(2)}</td><td class="rec">${f3(r.depthRadius)}</td><td>${f3(r.depthWidth)}</td><td>${f3(r.depthLinear)}</td></tr>`).join("");
+}
+function drawChips() {
+  const x12 = N.fretX(P, 12);
+  document.getElementById("chips").innerHTML = [
+    `25.5" scale · ${P.frets} frets`, `nut ${f3(P.nutWidth)}"`, `compound ${P.radiusNut}"→${N.radius(P, N.lastX(P)).toFixed(2)}" (→${P.radiusBridge}" at ${P.radiusMode === "saddle" ? "saddles" : "last fret"})`,
+    `depth ${f3(N.depth(P, N.fretX(P, 1)))}→${f3(N.depth(P, x12))}" (1st→12th)`, P.fretProfile === "wave" ? `wave fret: 6230 crest, ${f3(P.waveRho)}" flanks, ${f3(2 * N.waveGeom(P).tj)}" footprint` : `Dunlop 6230 + scallop ${f3(P.scallop1)}→${f3(P.scallop12)}"`,
+    `${P.fretEnd === "hemi" ? "hemisphere" : "semi-hemisphere"} ends`, P.fretProfile === "wave" ? `valley ${f3(P.waveDepth)}" below board` : "stock wire", `asymmetric, thumb-over`, `set neck`, `roasted flame maple / rosewood`,
+  ].map((t) => `<span class="chip">${t}</span>`).join("");
+}
+rebuild();
+window.__ready = true;
+</script>
+</body>
+</html>
