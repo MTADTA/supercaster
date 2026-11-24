@@ -1,0 +1,25 @@
+name: checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install numpy==2.4.6 scipy==1.17.1 pytest
+      - name: Wiring, all 60 switch states
+        working-directory: pickups/wiring
+        run: python verify_switching.py
+      - name: Chamber geometry tests
+        working-directory: body/sim
+        run: python -m pytest -q test_chamber_geometry.py
+      - name: Strength sizing tests
+        working-directory: body/optimize/carve-v2-acoustics
+        run: python -m pytest -q test_strength_sizing.py
+      - name: Neck viewer builds
+        run: python tools/build.py
