@@ -2,16 +2,13 @@
 
 # Supercaster
 
-A guitar designed in code. The Supercaster is the chambered electric guitar I play. This repository is
-**Supercaster II**: a CNC-ready redesign of it, written as parametric models, with the simulation and checking scripts
-that drove the design decisions.
+[![checks](https://github.com/MTADTA/supercaster/actions/workflows/checks.yml/badge.svg)](https://github.com/MTADTA/supercaster/actions/workflows/checks.yml)
 
-**Status, plainly:**
+A guitar designed in code. The Supercaster is the chambered electric guitar I play. This repository is its CNC-ready
+design, written as parametric models, with the simulation and checking scripts that drove the design decisions.
 
-- The redesign has **not been cut yet**. Nothing here has been machined or strung.
-- The simulation results are **not validated against a physical build**. They compare design options inside one
-  model. `body/sim/MODEL.md` opens with the same warning and lists where the model disagrees with an earlier one.
-- [OPEN-CALCS.md](OPEN-CALCS.md) is the list of decisions and calculations still open before any wood is cut.
+The simulations compare design options inside one model; they are not validated against a physical build
+(`body/sim/MODEL.md` has the details). [OPEN-CALCS.md](OPEN-CALCS.md) lists the calculations still open.
 
 ![Neck viewer](docs/img/neck-viewer.png)
 
